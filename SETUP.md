@@ -11,7 +11,7 @@ Use this checklist throughout setup.
 | Project scope | The exact project or module path and its applicable instructions are identified. |
 | Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
 | Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
-| Tools and project rules | Each action has a recorded access status and any required fallback. Branch and commit conventions, the PR template, and requirements before merge are recorded, with any unavailable or inapplicable items identified. |
+| Tools and project rules | Each action has a recorded access status and any required fallback. Branch names and descriptions, commit subjects and bodies, PR titles and templates, and requirements before merge are recorded, with any unavailable or inapplicable items identified. |
 | Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
 
 Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding tool or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
@@ -26,7 +26,7 @@ Identify a route for each action in the profile template. A single tool can cove
 
 Reuse tools that fit the project rules. Where a service is unfamiliar or unavailable, propose a manual handoff or describe the adapter that would be needed. Direct required sign-in to the service's normal interface and keep credentials out of the profile.
 
-Find existing hooks, linters, formatters, validators, and CI checks. Record their commands or configuration, when they run, and which changes they cover. Also find the project's branch and commit conventions, PR template, and requirements before merge. Keep personal check commands separate from required team checks.
+Find existing hooks, linters, formatters, validators, and CI checks. Record their commands or configuration, when they run, and which changes they cover. Also find the project's conventions for branch names and descriptions, commit subjects and bodies, and PR titles and templates. Record any requirements before merge. Keep personal check commands separate from required team checks.
 
 If check coverage or automation has a gap, propose up to three improvements that fit the project. For each one, say what it catches, when it would run, and whether it needs a local change or a team configuration change. Keep recommendations separate from discovered checks. Apply hook, tool, or CI changes only when separately requested and allowed by project rules.
 

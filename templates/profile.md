@@ -31,8 +31,9 @@ For each row, fill in the actual tool or command, the destination or working dir
 
 - Task destination and whether a tracker key is required:
 - Boundaries on edits and verification:
-- Branch and commit conventions:
-- PR template and task-linking rules:
+- Branch naming and description conventions:
+- Commit subject and body conventions:
+- PR title, body template, and task-linking rules:
 - Existing hooks, check commands, and triggers:
 - Required CI, approvals, and manual checks before merge:
 - Decisions or actions reserved for the user:
