@@ -2,6 +2,20 @@
 
 Use this guide in the work project where the user asked to set up Take the Baton. Read [WORKFLOW.md](WORKFLOW.md) and [the profile template](templates/profile.md) from the supplied source. Keep the work project and the source of these instructions separate.
 
+## Setup checklist
+
+Use this checklist throughout setup.
+
+| Item | Completion criterion |
+| --- | --- |
+| Project scope | The exact project or module path and its applicable instructions are identified. |
+| Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
+| Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
+| Tools and project rules | Each action has a recorded access status and any required fallback. Branch and commit conventions, the PR template, and requirements before merge are recorded, with any unavailable or inapplicable items identified. |
+| Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
+
+Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding tool or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
+
 ## Inspect the project
 
 1. Identify the project or module from the current directory. Read its applicable instructions, README, build entry points, and version control metadata. Keep discovery scoped to that project.
@@ -26,6 +40,6 @@ Give a short **before** report with the project, exact paths and proposed change
 
 After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored. If the exclusion fails, agree on a private location outside the checkout before saving there. Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Use read-only checks for setup verification.
 
-Give a short **after** report. State what changed, what you verified, and what remains pending or manual, with the reason. Include the profile path and the next prompt. Report partial changes accurately. If the workspace cannot save the profile, return its completed contents and intended path for manual saving. The setup confirmation covers the agreed profile and local exclusion changes. Workflow actions follow the user's task request and the project's approval rules.
+Give a short **after** report in the chat. Use one line per checklist item with its status and one brief confirmation or reason. Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separately from discovered checks. State the overall setup result, profile path, and next prompt. Report partial changes accurately. If the workspace cannot save the profile, return its completed contents and intended path for manual saving. The setup confirmation covers the agreed profile and local exclusion changes. Workflow actions follow the user's task request and the project's approval rules.
 
-On rerun, compare the existing profile, storage protection, tools, and rules. Report a current setup as ready. If changes are needed, present them together and preserve confirmed preferences.
+On rerun, compare the existing profile, storage protection, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
