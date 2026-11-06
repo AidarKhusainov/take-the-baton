@@ -12,16 +12,20 @@ Identify a route for each action in the profile template. A single tool can cove
 
 Reuse tools that fit the project rules. Where a service is unfamiliar or unavailable, propose a manual handoff or describe the adapter that would be needed. Direct required sign-in to the service's normal interface and keep credentials out of the profile.
 
+Find existing hooks, linters, formatters, validators, and CI checks. Record their commands or configuration, when they run, and which changes they cover. Also find the project's branch and commit conventions, PR template, and requirements before merge. Keep personal check commands separate from required team checks.
+
+If check coverage or automation has a gap, propose up to three improvements that fit the project. For each one, say what it catches, when it would run, and whether it needs a local change or a team configuration change. Keep recommendations separate from discovered checks. Apply hook, tool, or CI changes only when separately requested and allowed by project rules.
+
 ## Confirm one proposal
 
-Show the detected project, setup location, proposed tool routes, and the steps that need user input or a handoff. If the environment is clear, ask one question to confirm the proposal. Include any choice that materially affects the setup in the same request. For example, ask which tracker owns the project's tasks when both GitHub Issues and a separate tracker are present.
+Keep the profile and task records private. Use `.take-the-baton/profile.md` and `.take-the-baton/tasks/` in the selected project only when the directory is untracked and a local VCS exclusion can be verified. Check for any tracked or staged files under that path. For Git, resolve the local exclude file with `git rev-parse --git-path info/exclude` and match the actual directory relative to the repository root, including any module prefix. A tracked or staged path, or an exclusion that cannot be verified, calls for an agreed private location outside the checkout for both the profile and task records. Preserve existing tracked or staged files.
 
-Default to a personal profile at `.take-the-baton/profile.md` and task records under `.take-the-baton/tasks/`. Use the project's local exclusion mechanism if needed and available. Include any required exclusion change in the proposal. If the project needs a separate private location, agree on that location and record it in the profile. Share a profile in the project only when the user chooses to do so. Keep task records in the agreed private location even with a shared profile.
+Give a short **before** report with the project, exact paths and proposed changes, key tool routes, and gaps that need a handoff. List any check recommendations separately. Ask for one confirmation of the setup and include material unresolved choices in that request.
 
 ## Save and check
 
-After confirmation, save the profile. If the workspace cannot save it, return the completed profile and its intended path for a manual handoff. Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the resolved paths and routes against the project. Use read-only checks for setup verification.
+After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored. If the exclusion fails, agree on a private location outside the checkout before saving there. Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Use read-only checks for setup verification.
 
-Return the profile path, the next prompt the user can give any agent, and any capability that still needs attention. The setup confirmation applies to the profile and the changes shown in the proposal. Workflow actions use the user's task request and the project's approval rules.
+Give a short **after** report. State what changed, what you verified, and what remains pending or manual, with the reason. Include the profile path and the next prompt. Report partial changes accurately. If the workspace cannot save the profile, return its completed contents and intended path for manual saving. The setup confirmation covers the agreed profile and local exclusion changes. Workflow actions follow the user's task request and the project's approval rules.
 
-On rerun, compare the existing profile with current tools and rules. Report a current profile as ready. If it needs changes, present them together and preserve confirmed preferences when saving.
+On rerun, compare the existing profile, storage protection, tools, and rules. Report a current setup as ready. If changes are needed, present them together and preserve confirmed preferences.

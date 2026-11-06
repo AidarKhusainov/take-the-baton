@@ -30,6 +30,7 @@
 - Commands and observed results:
 - Skipped or blocked checks:
 - Remote CI and checked revision:
+- Merge readiness and outstanding checks:
 
 ## Review
 

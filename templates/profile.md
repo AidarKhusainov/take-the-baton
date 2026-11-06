@@ -6,7 +6,7 @@
 - Version control and default comparison base:
 - Take the Baton source URL and revision:
 - Task record directory:
-- Scope of this profile (personal or shared):
+- Private storage and verified local exclusion (if inside the checkout):
 
 ## Tool routes
 
@@ -31,5 +31,9 @@ For each row, fill in the actual tool or command, the destination or working dir
 
 - Task destination and whether a tracker key is required:
 - Boundaries on edits and verification:
+- Branch and commit conventions:
+- PR template and task-linking rules:
+- Existing hooks, check commands, and triggers:
+- Required CI, approvals, and manual checks before merge:
 - Decisions or actions reserved for the user:
 - Where task records and review material may be stored:

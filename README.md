@@ -8,7 +8,7 @@ Open your agent in the project you want to work on and send:
 
 > Set up Take the Baton for my current project using https://github.com/AidarKhusainov/take-the-baton. Read SETUP.md and show me the project profile you propose.
 
-The agent inspects the project and its available tools, confirms the setup with you, and saves a profile. Any agent that can read Markdown can use the instructions. With workspace and tool access, it can also run the steps. The profile records which steps it can run and where a separate session or a manual handoff is needed.
+The agent inspects project tools and checks, shows a short plan with any recommended improvements, then saves a private profile after you confirm. It reports what changed, what it verified, and what still needs attention. Any agent that can read Markdown can use the instructions. With workspace and tool access, it can also run the steps. The profile records which steps it can run and where a separate session or a manual handoff is needed.
 
 [Setup instructions](SETUP.md) · [Workflow](WORKFLOW.md)
 
