@@ -19,6 +19,7 @@ For each row, fill in the actual tool or command, the destination or working dir
 | Identify revisions and obtain a diff | | | |
 | Run focused local checks | | | |
 | Run final local checks | | | |
+| Start or hand off to a fresh developer session | | | |
 | Start or reach an independent reviewer | | | |
 | Read remote review feedback | | | |
 | Read remote CI | | | |

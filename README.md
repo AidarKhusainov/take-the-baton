@@ -24,6 +24,6 @@ The agent uses your project's tracker or other agreed destination. A request to 
 
 The analyst prepares a spec. The developer implements and tests it. You inspect the diff, then an independent reviewer examines it. The developer checks each finding and fixes the confirmed issues within scope. You resolve disputed findings, decide when to open the PR, and merge it.
 
-The project profile and task record let a new session pick up the work. To resume, tell the new agent to use this repository's workflow and give it the task record path, or the task key and the profile path if the profile lives outside its default location. It will check the recorded revision before reusing test or review evidence.
+The project profile and task record let a new session pick up the work. To resume, tell the new agent to use this repository's workflow and give it the task record path, or the task key and the profile path if the profile lives outside its default location. It will check the agreed spec and exact change before reusing test or review evidence.
 
 [Project profile template](templates/profile.md) · [Task record template](templates/task.md) · [MIT License](LICENSE)

@@ -1,7 +1,8 @@
 # Task record
 
 - Task title:
-- Task key, URL, or local ID:
+- Stable local ID:
+- Confirmed tracker key or URL:
 - Registration destination and status:
 - Registration attempt and request ID, if available:
 - Requested outcome (register, implement, or both):
@@ -9,6 +10,8 @@
 - Next action and owner:
 - Profile path:
 - PR reference:
+- Last verified PR base and head:
+- PR publication or update status:
 
 ## Agreed behavior
 
@@ -21,7 +24,8 @@
 ## Change and checks
 
 - Base revision:
-- Exact change reviewed (commit or diff reference):
+- Exact change tested (commit or diff reference):
+- Spec version used for the checks:
 - Diff handed off by the human:
 - Commands and observed results:
 - Skipped or blocked checks:
@@ -29,7 +33,7 @@
 
 ## Review
 
-- Independent reviewer and reviewed change:
+- Independent reviewer, reviewed spec version, base, and exact change:
 - Review status:
 - Human decisions:
 
