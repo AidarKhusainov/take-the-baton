@@ -56,7 +56,7 @@ After publication, read back the PR's base and head and verify that its exact di
 
 For colleagues' findings, refresh the PR's base, head, and feedback, then run the same validation and fix loop. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
 
-Before reporting the PR ready to merge, refresh its base and head. Check the current diff, required CI results for that head, required approvals, and any manual acceptance checks. Mark merge readiness as pending if required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
+Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current reviewed change for the agreed spec. Check required CI results for that head, required approvals, and any manual acceptance checks. Keep merge readiness pending while review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
 
 ## Resume in any session
 
