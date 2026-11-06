@@ -62,7 +62,16 @@ Before reporting the PR ready to merge, refresh its base and head and confirm th
 
 Use the project's conventions for each branch, commit, and PR. Use these defaults for any part the project leaves open. When a task key is optional and unavailable, omit it from the format.
 
-- **Branch.** Use `<kind>/<task-key>-<purpose>`, or `<kind>/<purpose>` when there is no task key. Use a short slug that describes the intended outcome. For example, use `fix/ABC-123-retry-timeouts`. Where branch descriptions are supported, include the task reference when available and one sentence about the intended outcome. Otherwise keep that context in the task record.
+- **Branch.** Use `<kind>/<task-key>-<purpose>`, or `<kind>/<purpose>` when there is no task key. Use a short slug that describes the intended outcome.
+
+  - `fix/ABC-123-retry-timeouts` for a bug fix.
+  - `feature/ABC-12-export-reports` for a feature.
+  - `refactor/ABC-45-extract-validation` for a refactor.
+  - `docs/update-setup-guide` for documentation without a task key.
+  - `feature/ABC-12` when the project uses the task key alone after the prefix.
+
+  Where branch descriptions are supported, include the task reference when available and one sentence about the intended outcome. Otherwise keep that context in the task record.
+
 - **Commit.** Use `<task-key>: <action>` for the subject. Name what this commit changes. In a brief body, explain why the change is needed and what changes as a result. Verify that the message matches the diff being committed.
 - **Pull request.** Use `<task-key>: <outcome>` for the title. Fill the project's body template when available. The default body covers the problem, what changed, how to verify it, observed results and pending checks, and the related task when available. Compare the title and body with the final diff and verification evidence. If the scope changes, bring the PR title and body up to date.
 
