@@ -43,3 +43,7 @@ After confirmation, apply any agreed local exclusion and verify it before writin
 Give a short **after** report in the chat. Use one line per checklist item with its status and one brief confirmation or reason. Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separately from discovered checks. State the overall setup result, profile path, and next prompt. Report partial changes accurately. If the workspace cannot save the profile, return its completed contents and intended path for manual saving. The setup confirmation covers the agreed profile and local exclusion changes. Workflow actions follow the user's task request and the project's approval rules.
 
 On rerun, compare the existing profile, storage protection, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
+
+## Offer an optional reflection run
+
+After the initial setup, offer the developer a [manual reflection run](REFLECTION.md) to look for recurring friction in their work with agents. Confirm the sources and private notes location before reading chat history. Setting up the project profile only authorizes the agreed setup changes. A daily schedule requires a separate request. The developer can skip reflection and use the workflow immediately.
