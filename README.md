@@ -12,13 +12,20 @@ The agent inspects project tools and checks, shows a short plan with any recomme
 
 [Setup instructions](SETUP.md) · [Workflow](WORKFLOW.md)
 
-## Give it a task
+## Give it an idea or a task
 
 - **Start from a task you have.** “Take PROJ-123 through the Take the Baton workflow.”
+- **Assess an idea.** “Use Take the Baton to check whether this is worth filing. Show the reason when a document retry is rejected.”
 - **Register an idea.** “Use Take the Baton to file a task for this idea. Show the reason when a document retry is rejected.”
 - **Register and implement.** “Use Take the Baton to file that task and start work on it.”
 
-The agent uses your project's tracker or other agreed destination. A request to register a task ends with its reference or a draft when registration is unavailable. A request to implement starts with a spec for you to agree on.
+An assessment gives you the evidence and a recommended next step. For registration, the agent uses your project's tracker or other agreed destination. A request to register a task ends with its reference or a draft when registration is unavailable. A request to implement starts with a spec for you to agree on.
+
+## Remember a decision
+
+> Use Take the Baton to remember that we keep the current API response format until the client migration is complete. The decision is in PROJ-123.
+
+The agent records the decision and its source in a private project journal. It brings up relevant decisions when assessing an idea or preparing a spec.
 
 ## Follow the work
 

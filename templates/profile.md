@@ -3,6 +3,8 @@
 - Project and scope:
 - Project root or module:
 - Project instructions:
+- Existing project decision sources, if any:
+- Private decision journal path, if used:
 - Version control and default comparison base:
 - Take the Baton source URL and revision:
 - Task record directory:

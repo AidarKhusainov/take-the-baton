@@ -2,7 +2,17 @@
 
 The human decides expected behavior, material tradeoffs, and when to publish or merge. Agents handle routine technical work within the approved scope.
 
-Read the work project's instructions and the profile supplied by the user or referenced by the task record. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep personal profiles and task records out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
+Read the work project's instructions and the profile supplied by the user or referenced by the task record. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep private profiles, task records, and decision journals out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
+
+## Assess an idea
+
+When the user asks whether an idea is worth pursuing, start with the described problem and the outcome they want.
+
+1. Check the relevant code, contracts, docs, and tests to establish current behavior. Identify who is affected and any existing workaround. Use a focused reproduction when it is available within the project's rules. Consult [relevant decisions](#remember-decisions-across-tasks).
+2. Search the project's tracker or other agreed task source for related work. Link an existing task if it covers the idea. Name the sources searched and state any gaps.
+3. Report what you confirmed, what remains unknown, and one recommended next step. Cite the revision examined and the evidence for the recommendation. Recommend using an existing task, running the smallest check that can settle the question, filing a task with a specific expected outcome, or deferring the idea with a reason.
+
+An assessment on its own ends with the report in chat. Continue to [registration](#1-take-in-the-task) when the user has asked for it and any stated conditions are met. If the user asks to file only if the problem is confirmed, establish the problem, check for duplicates, and state the expected outcome before creating anything. Reuse a task that already covers the idea. If those checks are incomplete, report the gap and keep registration pending.
 
 ## 1. Take in the task
 
@@ -11,16 +21,24 @@ Find the [task record](templates/task.md) in the profile's task directory before
 Use a stable filename for a new record. Record the requested action and destination. Before a remote create call, save the registration attempt and any stable request ID supported by the tool.
 
 - **Existing task.** Read the task, its latest relevant comments, and linked requirements. Record its key or URL and surface any conflict that changes the work.
-- **Register an idea.** Draft a title, problem, expected outcome, and any known acceptance criteria. Ask about gaps that affect what gets registered or where it belongs. Use the profile's destination when the user asks to register it. Confirm the created task, save its key or URL in the same task record, and return its reference. Registration alone ends here.
+- **Register an idea.** Draft a title, problem, expected outcome, and any known acceptance criteria. Ask about gaps that affect what gets registered or where it belongs. Use the profile's destination when the user asks to register it. Carry findings from an earlier assessment into the task record when they are still supported by current sources. Confirm the created task, save its key or URL in the same task record, and return its reference. Registration alone ends here.
 - **Register and implement.** Register it, then continue to analysis. For an implementation request given as a description, use a local task record unless the user requests registration or the project requires a tracker task.
 
 When remote creation is unavailable, prepare the draft or use the agreed local destination. Record remote registration as pending when required. If a create request has an uncertain result, record it and check whether the task exists before trying again. If uncertainty remains, give the user the task record path and ask them to resolve it. Reuse a confirmed task reference when retrying or resuming. If the project requires a tracker key for a step, hold that step until the key is available and complete any analysis the project allows.
 
 ## 2. Agree on behavior
 
-The analyst checks current code, contracts, project documentation, and tests. Record the baseline examined, what already exists, and the behavior that should change. Write a use-case spec covering the actor or trigger, inputs, expected flow, observable outcome, significant alternatives, and acceptance checks.
+The analyst checks current code, contracts, project documentation, and tests. Consult [relevant decisions](#remember-decisions-across-tasks). Record the baseline examined, what already exists, and the behavior that should change. Write a use-case spec covering the actor or trigger, inputs, expected flow, observable outcome, significant alternatives, and acceptance checks.
 
 Resolve routine questions from project sources. Bring the human questions that change behavior, scope, or risk, with options and a recommendation when possible. Record the answers. Begin implementation after the human agrees to the spec.
+
+## Remember decisions across tasks
+
+When the user asks to remember an agreed decision for future tasks, save it in the private journal referenced by the project profile. If a journal is needed, use the agreed private storage and [verify protection for its path](SETUP.md#confirm-one-proposal) before writing. Add the journal path to the profile so another session can find it.
+
+Record the affected area, the agreed decision, its source, and the condition for revisiting it if one was agreed. For example, a team might keep the existing API response format until a client migration is complete. When a project decision already lives in an ADR, ticket, or PR, keep the journal entry short and point to that source. For a decision confirmed in chat, link the confirmation or record who confirmed it and when if a link is unavailable. Update an existing entry for the same decision when the user confirms a change.
+
+When assessing an idea or preparing a spec, read the relevant decision sources and journal entries listed in the profile, if any. Check the source and the revisit condition before relying on a journal entry. If the condition has been met, the source is unavailable, or sources disagree, flag the decision for review. Bring material questions about the expected behavior to the human.
 
 ## 3. Implement and verify
 
