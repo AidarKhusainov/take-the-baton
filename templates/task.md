@@ -8,6 +8,8 @@
 - Requested outcome (register, implement, or both):
 - Stage and status:
 - Next action and owner:
+- Assigned developer session reference:
+- Assigned independent reviewer session reference:
 - Profile path:
 - PR reference:
 - Last verified PR base and head:
@@ -26,7 +28,7 @@
 - Base revision:
 - Exact change tested (commit or diff reference):
 - Spec version used for the checks:
-- Diff handed off by the human:
+- Latest diff sent to the reviewer:
 - Commands and observed results:
 - Skipped or blocked checks:
 - Remote CI and checked revision:
@@ -34,7 +36,7 @@
 
 ## Review
 
-- Independent reviewer, reviewed spec version, base, and exact change:
+- Reviewed spec version, comparison base, and exact change:
 - Review status:
 - Human decisions:
 

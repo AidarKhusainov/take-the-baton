@@ -24,25 +24,25 @@ Resolve routine questions from project sources. Bring the human questions that c
 
 ## 3. Implement and verify
 
-Hand the agreed spec, baseline, and acceptance checks to a fresh developer session. If you cannot start one, prepare the handoff for a separate session and mark implementation as pending. The developer who picks it up checks the workspace against the recorded baseline and follows the project's branch rules. Reuse the intended task branch when it fits those rules. Create a branch only when the project calls for one and the action is authorized. Use the [change history templates](#change-history-templates) for branch names and descriptions. Preserve unrelated changes and implement within the agreed scope. Bring any material change to the spec back to the human.
+Assign one developer session to the task after the spec is agreed. Give it the spec, baseline, and acceptance checks. Record how to reach the session when a reference is available. If you cannot start it directly, prepare the handoff for a separate session and mark implementation as pending. The assigned developer checks the workspace against the recorded baseline and follows the project's branch rules. Reuse the intended task branch when it fits those rules. Create a branch only when the project calls for one and the action is authorized. Use the [change history templates](#change-history-templates) for branch names and descriptions. Preserve unrelated changes and implement within the agreed scope. Bring any material change to the spec back to the human.
 
 Run focused checks during development and the project's relevant final checks. Tie the results to the agreed spec version, comparison base, and exact change tested, such as a commit or a saved diff that includes the in-scope changes. Record test commands, outcomes, test counts when available, and any blocked or skipped checks. A run with zero relevant tests leaves those scenarios unverified.
 
-## 4. Give the human the diff
+## 4. Hand off the diff for review
 
-Present the change, its verification evidence, and any remaining questions. Apply requested cleanup, then update the diff identity and rerun affected checks. Continue to independent review when the human hands off the diff. Record the identity of the diff they handed off.
+When the first diff is ready, assign one independent reviewer session to the task. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff and share it with the human along with the check results while review proceeds.
+
+If the environment requires a manual handoff, use the route in the project profile. Keep review pending until the assigned reviewer can take the diff.
 
 ## 5. Review and resolve findings
 
-Give a fresh, independent reviewer the agreed spec, exact diff, project rules, and check results. Record the spec version, comparison base, and exact change they reviewed. Where the current agent cannot start one, prepare a handoff for a separate agent session or a person and keep review pending.
-
-The reviewer describes each finding with a location, consequence, and evidence. The developer validates it against the current change and records one disposition for it:
+Keep the assigned developer and reviewer for every round on the task. The reviewer records the spec version, comparison base, and exact change reviewed. The reviewer describes each finding with its location, consequence, and evidence. The developer checks the finding against the current change and records one of these dispositions:
 
 - **Confirmed.** Fix within scope and record the evidence.
 - **Dismissed.** Record the evidence that resolves the concern.
 - **Needs a decision.** Bring the human the tradeoff when the finding is disputed, expands scope, or requires accepting a material risk.
 
-Run affected checks after a fix and ask for targeted re-review of substantial changes. Finish the loop when each finding has a disposition, any required decisions are recorded, and substantial fixes have been rechecked. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
+After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the same reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
 
 ## 6. Publish and respond to feedback
 
@@ -50,11 +50,11 @@ When the user asks for a PR, confirm that verification and independent review ar
 
 Follow the profile and project rules for commits and pushes. Use the [change history templates](#change-history-templates) when preparing commit messages and PRs. If a hook fails, inspect its output, fix the cause within scope, and rerun the affected check. Retry the authorized action once the issue is resolved. Before retrying a push, repeat the outgoing diff comparison below and any checks or review affected by the fix. If the failure remains or requires a decision, report it and keep the action pending. Keep required checks in effect.
 
-After preparing the outgoing commits, compare their exact diff against the intended PR base with the reviewed change before pushing. If the diff or base changed, repeat the affected checks and review before publication. Apply the project's rules for linking or closing related tasks.
+After preparing the outgoing commits, compare their exact diff against the intended PR base with the reviewed change before pushing. If the diff or base changed, repeat the affected checks and return the change to the assigned reviewer before publication. Apply the project's rules for linking or closing related tasks.
 
 After publication, read back the PR's base and head and verify that its exact diff matches the reviewed change. Record the PR reference and both revisions. If they differ from what you verified, record what needs rechecking before reporting the PR ready. Report local checks and remote CI for the current head separately.
 
-For colleagues' findings, refresh the PR's base, head, and feedback, then run the same validation and fix loop. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
+For colleagues' findings, refresh the PR's base, head, and feedback, then run the same validation and fix loop with the assigned developer and reviewer. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
 
 Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current reviewed change for the agreed spec. Check required CI results for that head, required approvals, and any manual acceptance checks. Keep merge readiness pending while review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
 
@@ -79,4 +79,6 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 
 Update the task record at each handoff with the stage, owner of the next action, spec approval, exact diff identity, checks, and review decisions. Use the location agreed in the profile.
 
-To resume, read the record and refresh relevant task or PR updates, including the current PR base and head if there is a PR. Compare the agreed spec version, comparison base, and exact change with the recorded evidence. If any of them changed, mark affected evidence as stale and repeat the relevant checks or review. If the handed-off diff changed outside the recorded review fixes, return the new diff to the human before resuming independent review. If requirements changed, resolve any material differences with the human before continuing.
+To resume, read the record and refresh relevant task or PR updates, including the current PR base and head if there is a PR. If requirements changed, resolve any material differences with the human before continuing. Compare the agreed spec version, comparison base, and exact change with the recorded evidence. If any of them changed, mark affected evidence as stale. The assigned developer reruns the affected checks and returns the updated diff to the assigned reviewer when review needs to be repeated.
+
+A new session can coordinate the task. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, record the blocked handoff and keep that step pending.
