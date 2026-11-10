@@ -11,7 +11,7 @@ Set up Take the Baton for this project.
 https://github.com/AidarKhusainov/take-the-baton
 ```
 
-If you're the agent setting up Take the Baton, read [SETUP.md](SETUP.md) and follow it in the user's project.
+The agent follows the [setup guide](SETUP.md) to configure Take the Baton for your project.
 
 Once setup is complete, try “Use Take the Baton to work on PROJ-123.”
 
