@@ -6,8 +6,13 @@ A workflow for coding agents, from a task to a pull request. It saves the diff, 
 
 In your project, send your coding agent this message.
 
-> Set up Take the Baton for this project using https://github.com/AidarKhusainov/take-the-baton. Read SETUP.md and show me the proposed setup.
+```text
+Set up Take the Baton for this project.
+https://github.com/AidarKhusainov/take-the-baton
+```
+
+If you're the agent setting up Take the Baton, read [SETUP.md](SETUP.md) and follow it in the user's project.
 
 Once setup is complete, try “Use Take the Baton to work on PROJ-123.”
 
-[Setup](SETUP.md) · [Workflow](WORKFLOW.md) · [MIT License](LICENSE)
+[Workflow](WORKFLOW.md) · [MIT License](LICENSE)

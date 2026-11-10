@@ -6,8 +6,13 @@ Take the Baton помогает агенту вести задачу от пос
 
 Открой агента в своём проекте и отправь ему этот запрос.
 
-> Подключи Take the Baton к этому проекту. Прочитай `SETUP.md` в репозитории https://github.com/AidarKhusainov/take-the-baton и сначала покажи, что предлагаешь изменить.
+```text
+Подключи Take the Baton к этому проекту.
+https://github.com/AidarKhusainov/take-the-baton
+```
+
+Если тебя попросили подключить Take the Baton, прочитай [SETUP.md](SETUP.md) и выполни его шаги в проекте пользователя.
 
 После настройки можно начать с запроса «Возьми задачу PROJ-123 в работу по Take the Baton».
 
-[Настройка (англ.)](SETUP.md) · [Порядок работы (англ.)](WORKFLOW.md) · [Лицензия MIT](LICENSE)
+[Порядок работы (англ.)](WORKFLOW.md) · [Лицензия MIT](LICENSE)
