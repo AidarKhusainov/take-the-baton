@@ -12,6 +12,8 @@ The agent inspects project tools and checks, shows a short plan with any recomme
 
 [Setup instructions](SETUP.md) · [Workflow](WORKFLOW.md)
 
+During setup, the agent can [recover context from recent project chats](SETUP.md#recover-context-from-recent-chats-if-approved) with your permission.
+
 ## Give it an idea or a task
 
 - **Start from a task you have.** “Take PROJ-123 through the Take the Baton workflow.”
@@ -32,5 +34,10 @@ The agent records the decision and its source in a private project journal. It b
 A straightforward change can stay in one session with focused checks. The agent saves a task record when work needs to pass to another session or resume later, and arranges independent review when you ask for it or the project requires it. You can inspect the diff while review proceeds. You resolve disputed findings, decide when to open the PR, and merge it.
 
 To resume in a new session, ask the agent to use this workflow and give it the task record path, or the task key and the profile path if the profile lives outside its default location. The agent uses the record to reconnect with the assigned developer and reviewer and checks the agreed spec and exact change before reusing test or review evidence.
+
+## Optional skills
+
+- [use-case-spec](https://github.com/AidarKhusainov/skills/blob/master/use-case-spec/SKILL.md) gives the agent a format for a full use-case spec when the task needs one.
+- [clear-explanations](https://github.com/AidarKhusainov/skills/blob/master/clear-explanations/SKILL.md) guides how the agent writes reports, asks questions, and explains code.
 
 [Project profile template](templates/profile.md) · [Task record template](templates/task.md) · [MIT License](LICENSE)

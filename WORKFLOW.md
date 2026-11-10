@@ -36,6 +36,17 @@ Check current code, contracts, project documentation, and tests. Consult [releva
 
 When the user has asked for implementation and the desired behavior and acceptance checks are clear from the request and project sources, use them as the spec. Follow any project requirements for a formal spec or separate approval. Resolve routine questions from project sources. When an unresolved decision would materially affect behavior, scope, or risk, propose the expected outcome and acceptance checks, record the human's decision, and wait for agreement before implementing the affected change. For a task with significant alternative flows, use a use-case spec covering the actor or trigger, inputs, expected flow, observable outcome, alternatives, and acceptance checks.
 
+Use these examples to decide when to ask the user about an open choice.
+
+- **Behavior or scope.** Ask when reasonable options lead to different user-visible outcomes or expand the task.
+- **Architecture.** Ask before changing a module boundary, public contract, shared data model, or deployment approach.
+- **Dependencies and tooling.** Ask before adding a production dependency or external service, or changing shared tooling or CI.
+- **Risk.** Ask when proceeding requires accepting a material risk, for example publishing with a known limitation that affects users.
+
+Follow decisions already made in the project or by the user. Handle local implementation choices and selection among authorized tools using project conventions. When asking, explain the consequence, give the viable options, and recommend one when the evidence supports it. The user decides disputed review findings that require a decision, authorizes PR publication, and decides when to merge.
+
+For a full use-case spec, optionally use [use-case-spec](https://github.com/AidarKhusainov/skills/blob/master/use-case-spec/SKILL.md) as the writing format. Keep acceptance checks in the task record or chat when the format leaves them outside the spec.
+
 ## Remember decisions across tasks
 
 When the user asks to remember an agreed decision for future tasks, save it in the private journal referenced by the project profile. If a journal is needed, use the agreed private storage and [verify protection for its path](SETUP.md#confirm-one-proposal) before writing. Add the journal path to the profile so another session can find it.
