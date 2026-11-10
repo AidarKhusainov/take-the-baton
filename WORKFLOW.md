@@ -67,7 +67,7 @@ Run focused checks during development and the project's relevant final checks. T
 
 Use independent review when the user requests it or project rules require it. If an independent check could resolve a material risk, bring that decision to the user. When review does not apply, report it as not required and still report the verification results.
 
-When independent review applies and the first diff is ready, assign one independent reviewer session to the task. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff and share it with the human along with the check results while review proceeds.
+When independent review applies and the first diff is ready, assign one independent reviewer session to the task. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff. Keep the diff and check results available for the user to inspect during review.
 
 If the environment requires a manual handoff, use the route in the project profile. Keep required review pending until the reviewer completes it, including when the review route is unavailable.
 
@@ -81,6 +81,12 @@ Keep any assigned developer and reviewer for every round on the task. The review
 
 After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the same reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
 
+### Prepare the diff for human review
+
+Before asking a human to review the diff, run the required checks available at that stage. Complete any applicable preliminary review and fix confirmed findings within scope, then rerun affected checks on the current diff. Bring decisions that block progress to the user when they arise.
+
+Give the human a brief summary of what changed and why, the exact diff with links to the key code locations, the check results, and any questions that require their decision. List any pending required checks or preliminary reviews and explain what is holding them up. Mark the handoff as pending while a prerequisite for this stage is incomplete or failing.
+
 ## 6. Publish and respond to feedback
 
 When the user asks for a PR, confirm that verification and any required independent review are complete for the agreed spec and the change you intend to publish. If a required check is incomplete or failing, required review is pending, or publication is unavailable, prepare the title, description, and diff for handoff and record publication as pending.
@@ -93,7 +99,7 @@ After publication, read back the PR's base and head and verify that its exact di
 
 For colleagues' findings, refresh the PR's base, head, and feedback, then run the same verification and fix steps. Use the assigned developer and reviewer where those roles apply. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
 
-Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current verified change for the agreed spec. Confirm that any required independent review, CI for that head, approvals, and manual acceptance checks are complete. Keep merge readiness pending while required review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
+Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current verified change for the agreed spec. Confirm that any required independent review, CI for that head, approvals, and manual acceptance checks are complete. Keep merge readiness pending while required review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Share the final diff and check status using the [human review handoff](#prepare-the-diff-for-human-review). The human makes the merge decision and merges the PR.
 
 ## Change history templates
 
