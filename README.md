@@ -1,5 +1,7 @@
 # Take the Baton
 
+[Русский](README.ru.md)
+
 A workflow for coding agents, from a task to a pull request. It saves the diff, check results, and review decisions when another session needs to pick up the work.
 
 In your project, send your coding agent this message.
