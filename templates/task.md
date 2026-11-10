@@ -4,12 +4,14 @@
 - Stable local ID:
 - Confirmed tracker key or URL:
 - Registration destination and status:
-- Registration attempt and request ID, if available:
+- Registration owner, submitted title, problem, and expected outcome:
+- Registration attempt status and request ID, if available:
 - Requested outcome (register, implement, or both):
 - Stage and status:
 - Next action and owner:
 - Assigned developer session reference:
 - Assigned independent reviewer session reference:
+- Session reassignments and reasons, if any:
 - Profile path:
 - PR reference:
 - Last verified PR base and head:
@@ -26,6 +28,7 @@
 ## Change and checks
 
 - Base revision:
+- Checkout or worktree, branch, and accessible commit or complete patch for handoff:
 - Exact change tested (commit or diff reference):
 - Spec version used for the checks:
 - Latest diff sent to the reviewer:

@@ -18,17 +18,19 @@ An assessment on its own ends with the report in chat. Continue to [registration
 
 ## 1. Take in the task
 
-Look for an existing [task record](templates/task.md) in the profile's task directory. When given a tracker key or URL, match it against identifiers stored in existing records, including records named with a local ID. Reuse the matching record and keep its filename. If several records match, ask which to use.
+Look for an existing [task record](templates/task.md) in the profile's task directory. When given a tracker key or URL, match it against identifiers stored in existing records, including records named with a local ID. When given a local task ID or record path, use it to locate the record.
+
+Before creating a record for registration or issuing a new remote create request, check unresolved registration attempts in the same destination even if the user supplied only a description. Compare the saved title, problem, and expected outcome with the request. Reuse the matching record and keep its filename. If several records could match, or a possible match cannot be resolved, ask which record to use before creating anything.
 
 Create a record when registering a task, before handing off implementation or review to another session, before pausing for later resumption, or when the user or project requires one. Otherwise, keep relevant decisions, change references, and results in the current chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
 
-Use a stable filename for a new record. Record the requested action and destination. Before a remote create call, save the registration attempt and any stable request ID supported by the tool.
+Use a stable filename for a new record. Record the requested action and destination. Before a remote create call, save the submitted title, problem, expected outcome, and any stable request ID supported by the tool. Mark the attempt as started before sending the request. Treat an interrupted attempt with no confirmed outcome as uncertain. Keep one registration owner for the record. Any later session continues registration from that same record.
 
 - **Existing task.** Read the task, its latest relevant comments, and linked requirements. Record its key or URL and surface any conflict that changes the work.
 - **Register an idea.** Draft a title, problem, expected outcome, and any known acceptance criteria. Ask about gaps that affect what gets registered or where it belongs. Use the profile's destination when the user asks to register it. Carry findings from an earlier assessment into the task record when they are still supported by current sources. Confirm the created task, save its key or URL in the same task record, and return its reference. Registration alone ends here.
 - **Implement from a description.** Continue to analysis. Register the task first if the user requests registration or the project requires it. If registration is pending, continue only with work the project allows.
 
-When remote creation is unavailable, prepare the draft or use the agreed local destination. Record remote registration as pending when required. If a create request has an uncertain result, record it and check whether the task exists before trying again. If uncertainty remains, give the user the task record path and ask them to resolve it. Reuse a confirmed task reference when retrying or resuming. If the project requires a tracker key for a step, hold that step until the key is available and complete any analysis the project allows.
+When remote creation is unavailable, prepare the draft or use the agreed local destination. Record remote registration as pending when required. If a create request has an uncertain result, record it. Use the saved destination, submitted details, and request ID when available to check whether the task exists. If found, save and reuse its confirmed reference. Retry only when the first request is known to have created nothing or the tool guarantees that retrying with the same request ID cannot create a second task. If uncertainty remains, give the user the task record path and keep registration pending until the outcome is resolved. If the project requires a tracker key for a step, hold that step until the key is available and complete any analysis the project allows.
 
 ## 2. Agree on behavior
 
@@ -79,13 +81,13 @@ If the environment requires a manual handoff, use the route in the project profi
 
 ## 5. Review and resolve findings
 
-Keep any assigned developer and reviewer for every round on the task. The reviewer records the spec version, comparison base, and exact change reviewed. The reviewer describes each finding with its location, consequence, and evidence. The developer checks the finding against the current change and records one of these dispositions:
+Keep any assigned developer and reviewer for every round on the task, following the [replacement rules](#resume-in-any-session) when an assigned session cannot be resumed. The reviewer records the spec version, comparison base, and exact change reviewed. The reviewer describes each finding with its location, consequence, and evidence. The developer checks the finding against the current change and records one of these dispositions:
 
 - **Confirmed.** Fix within scope and record the evidence.
 - **Dismissed.** Record the evidence that resolves the concern.
 - **Needs a decision.** Bring the human the tradeoff when the finding is disputed, expands scope, or requires accepting a material risk.
 
-After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the same reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
+After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the assigned reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
 
 ### Prepare the diff for human review
 
@@ -126,8 +128,10 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 
 ## Resume in any session
 
-Create or update the task record at each handoff with the stage, owner of the next action, agreed spec or acceptance checks, exact diff identity, check results, and any review decisions. Use the location agreed in the profile.
+Before pausing for later resumption or handing work to another session, create or update the task record with the stage, owner of the next action, agreed spec or acceptance checks, comparison base, check results, and any review decisions. Use the location agreed in the profile.
+
+When there are changes to carry forward, record the checkout or worktree, the branch if there is one, and an exact change reference. Use an accessible commit or a complete saved patch that includes all in-scope changes, including new files. Use only the project's approved private storage or transfer route. Verify that the recipient can open the change before marking the handoff ready. If the next session is not known yet, record how it can open the change and verify access on resumption. If the recipient cannot access it, report the blocker and keep the handoff pending.
 
 To resume, read the record and refresh relevant task or PR updates, including the current PR base and head if there is a PR. If requirements changed, resolve any material differences with the human before continuing. Compare the agreed spec version, comparison base, and exact change with the recorded evidence. If any of them changed, mark affected evidence as stale. The developer reruns the affected checks and returns the updated diff to the assigned reviewer when review needs to be repeated.
 
-A new session can coordinate the task and continue work that does not require an assigned session. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, record the blocked handoff and keep that step pending.
+A new session can coordinate the task and continue work that does not require an assigned session. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, reassign the role when the project rules and the user's authorization allow it. Record the previous and new assignments and the reason, preserving the prior decisions and findings. Give the replacement the agreed spec, exact change, check results, and open findings. A replacement reviewer independently reviews the current diff before that review is marked complete. If reassignment needs a decision or no eligible replacement is available, explain the blocker and keep the step pending.
