@@ -111,6 +111,8 @@ After a fix or requested cleanup, the developer records the updated diff, reruns
 
 Give the human a brief summary of what changed and why, the exact diff with links to key code locations, the check results, and any questions that require their decision. For behavior changes, link acceptance criteria to checks and report before and after results when test-first verification applies. Report local checks and remote CI separately, with the revisions or tree each checked. List pending requirements and explain what is holding them up. Use the [action requirements](#action-requirements) to determine readiness.
 
+Optionally use [clear-explanations](https://github.com/AidarKhusainov/skills/blob/master/clear-explanations/SKILL.md) when writing reports or questions for the human.
+
 ## 6. Publish and respond to feedback
 
 ### Action requirements
@@ -133,7 +135,9 @@ Follow the profile and project rules for commits, pushes, and linking or closing
 
 After publication, read back the PR base and head, confirm that the diff matches the verified change, and record the PR reference and both revisions. If the diff differs, record what must be rechecked before reporting readiness. Use the project's PR review route once the PR is eligible.
 
-For colleagues' findings, refresh the PR base, head, and feedback. Use the same [review and fix loop](#5-review-and-resolve-findings), with the assigned developer and reviewer where applicable. Push verified fixes to the existing PR branch within the user's authorization and apply the push requirements above. If the push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
+Read the latest PR comments and refresh the PR base and head. Check each finding against the current diff using the [review and fix loop](#5-review-and-resolve-findings). Record which findings still apply and why. Keep the assigned developer and reviewer where applicable.
+
+Push verified fixes to the existing PR branch within the user's authorization and apply the push requirements above. If the push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
 
 [Report the change and check status](#report-the-change-to-the-human) at review handoff and when reporting merge readiness.
 
