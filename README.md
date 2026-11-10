@@ -35,7 +35,7 @@ The agent records the decision and its source in a private project journal. It b
 
 A straightforward change can stay in one session with focused checks. The agent saves a task record when work needs to pass to another session or resume later, and arranges independent review when you ask for it or the project requires it. You can inspect the diff while review proceeds. You resolve disputed findings, decide when to open the PR, and merge it.
 
-To resume in a new session, start the workflow using your selected mode and give the agent the original task record path. A task key is enough if the agent can access the original records. From another worktree without that access, give the original record path or the original profile path and task key. When you supply the record, the agent finds the original profile from it. For manual startup, use the [copyable prompts with the workflow source and revision](SETUP.md#manual-startup). The agent uses the record to reach the assigned developer and reviewer or replace an unavailable session when authorized. It checks the agreed spec and exact change before reusing test or review evidence.
+To resume in a new session, ask “Resume from `<original task record path>`” using your selected startup mode. See [how to resume with a task key or from another worktree](WORKFLOW.md#resume-in-any-session).
 
 ## Optional skills
 

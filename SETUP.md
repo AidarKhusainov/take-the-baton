@@ -132,6 +132,4 @@ Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** fo
 
 On rerun, compare the existing profile, storage protection, activation instructions, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 
-## Offer an optional reflection run
-
-After the initial setup, offer the developer a [manual reflection run](REFLECTION.md) to look for recurring friction in their work with agents. Confirm the sources and private notes location before reading chat history. Setting up the project profile only authorizes the agreed setup changes. A daily schedule requires a separate request. The developer can skip reflection and use the workflow immediately.
+Optional: [reflect on recurring problems in how you work with agents](REFLECTION.md).
