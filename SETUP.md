@@ -35,7 +35,15 @@ If check coverage or automation has a gap, propose up to three improvements that
 
 ## Recover context from recent chats if approved
 
-Before proposing the profile, offer to review the ten most recent chats for this project, or all of them if there are fewer. Confirm permission and the scope before reading messages. Review more only if the user agrees to a broader scope. Verify that each chat belongs to the selected project or module using project or workspace information from the host. If the host cannot read or reliably identify the chats, use task records or ask the user for selected excerpts.
+Before proposing the profile, use this prompt in the user's language when offering chat review. Keep the option codes and reuse any choice the user has already made.
+
+> May I review up to ten of the most recent chats in `<project or module>` to find confirmed decisions, useful commands, and unfinished tasks?
+>
+> - **H1. Allow.** Review the ten most recent project chats, or all of them if there are fewer.
+> - **H2. Skip.** Continue setup without reading chats.
+> - **H3. Selected chats only.** Review the chats or excerpts I identify.
+
+Confirm permission and scope before reading messages. For `H3`, ask for the selection if it is missing. Review more than ten only if the user agrees to a broader scope. Verify that each chat belongs to the selected project or module using project or workspace information from the host. If the host cannot read or reliably identify the chats, use task records or ask for selected excerpts within the approved scope.
 
 Look for confirmed decisions, useful project commands, and unfinished work. Verify project facts against current sources and distinguish confirmed decisions from suggestions or assumptions. Show the relevant findings and their sources in the setup proposal, including how many chats were reviewed and any access gaps. Propose only durable, relevant entries for the profile or an existing private decision journal. Surface unfinished task references in the report. Keep source excerpts and chat links within the agreed private scope.
 
@@ -72,13 +80,39 @@ Keep the profile and task records private. Use `.take-the-baton/profile.md` and 
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
-Give a short **before** report with the project, exact paths and proposed changes, key tool routes, and gaps that need a handoff. Include the chosen mode, scope and keyword if used, the profile lookup, and the exact instruction change or manual startup prompt. List any check recommendations separately. Ask for one confirmation of the proposed changes and include any material unresolved choices in that request.
+Fill in this **before** report in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. Include material unresolved choices and keep check recommendations separate from the changes being approved.
+
+> **Proposed setup**
+>
+> - Project and scope — `<project or module and path>`
+> - Private storage — `<profile and task record paths and any local exclusion to add>`
+> - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found>`
+> - Changes — `<exact proposed edits, or the manual startup prompt>`
+> - Tools and checks — `<main routes, required checks, and any limitations>`
+>
+> - **S1. Confirm the proposal.**
+> - **S2. Change the proposal.** Tell me what to change.
+
+Apply the proposed changes after `S1` or an equivalent explicit confirmation. For `S2`, show the revised proposal and wait for the user's confirmation before applying the changes.
 
 ## Save and check
 
 After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored. If the exclusion fails, agree on a private location outside the checkout before saving there. Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
-Give a short **after** report in the chat. Use one line per checklist item with its status and one brief confirmation or reason. Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separately from discovered checks. State the overall setup result, profile path, activation mode, scope, instruction location or manual route, and the next prompt. For default mode, show an ordinary task request. For keyword mode, show that request with the selected keyword first. If the selected mode is still pending or startup is manual, give the full manual prompt. Report partial changes accurately. If the workspace cannot save the profile, return its completed contents and intended path for manual saving. The setup confirmation covers the agreed profile, local exclusion, and activation instruction changes. Workflow actions follow the user's task request and the project's approval rules.
+Fill in this **after** report in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
+
+> **Setup result** — `<ready / ready with limitations / incomplete>`
+>
+> - Project scope — `<status and project or module path>`
+> - Private storage — `<status, paths and protection>`
+> - Profile — `<status and profile path>`
+> - Activation — `<status, mode, scope, and instruction location or manual route>`
+> - Tools and project rules — `<status, key routes and limitations>`
+> - Code checks — `<status and discovered checks>`
+>
+> **Next request** — `<copyable prompt>`
+
+Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the agreed profile, local exclusion, and activation instruction changes. Workflow actions follow the user's task request and the project's approval rules.
 
 On rerun, compare the existing profile, storage protection, activation instructions, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 
