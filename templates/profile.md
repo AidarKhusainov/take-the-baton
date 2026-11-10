@@ -37,6 +37,7 @@ For each row, fill in the actual tool or command, the destination or working dir
 - Commit subject and body conventions:
 - PR title, body template, and task-linking rules:
 - Existing hooks, check commands, and triggers:
-- Required CI, approvals, and manual checks before merge:
+- Required checks and reviews before publication (push, PR opening, or marking a draft ready, as applicable):
+- Required reviews, CI, approvals, and manual checks before merge, including those that run in the open PR:
 - Decisions or actions reserved for the user:
 - Where task records and review material may be stored:
