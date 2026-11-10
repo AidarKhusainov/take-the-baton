@@ -4,6 +4,8 @@ The human decides expected behavior, material tradeoffs, and when to publish or 
 
 Read the work project's instructions and the profile supplied by the user or referenced by the task record. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep private profiles, task records, and decision journals out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
 
+Use the steps that apply to the request. A straightforward change can stay in the current session. Agree on material decisions before implementing the affected change, save a task record for work that needs to continue in another session, and run independent review when required. The user's instructions and project rules apply to every task.
+
 ## Assess an idea
 
 When the user asks whether an idea is worth pursuing, start with the described problem and the outcome they want.
@@ -16,21 +18,23 @@ An assessment on its own ends with the report in chat. Continue to [registration
 
 ## 1. Take in the task
 
-Find the [task record](templates/task.md) in the profile's task directory before creating one. When given a tracker key or URL, match it against identifiers stored in existing records, including records named with a local ID. Reuse the matching record and keep its filename. If several records match, ask which to use.
+Look for an existing [task record](templates/task.md) in the profile's task directory. When given a tracker key or URL, match it against identifiers stored in existing records, including records named with a local ID. Reuse the matching record and keep its filename. If several records match, ask which to use.
+
+Create a record when registering a task, before handing off implementation or review to another session, before pausing for later resumption, or when the user or project requires one. Otherwise, keep relevant decisions, change references, and results in the current chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
 
 Use a stable filename for a new record. Record the requested action and destination. Before a remote create call, save the registration attempt and any stable request ID supported by the tool.
 
 - **Existing task.** Read the task, its latest relevant comments, and linked requirements. Record its key or URL and surface any conflict that changes the work.
 - **Register an idea.** Draft a title, problem, expected outcome, and any known acceptance criteria. Ask about gaps that affect what gets registered or where it belongs. Use the profile's destination when the user asks to register it. Carry findings from an earlier assessment into the task record when they are still supported by current sources. Confirm the created task, save its key or URL in the same task record, and return its reference. Registration alone ends here.
-- **Register and implement.** Register it, then continue to analysis. For an implementation request given as a description, use a local task record unless the user requests registration or the project requires a tracker task.
+- **Implement from a description.** Continue to analysis. Register the task first if the user requests registration or the project requires it. If registration is pending, continue only with work the project allows.
 
 When remote creation is unavailable, prepare the draft or use the agreed local destination. Record remote registration as pending when required. If a create request has an uncertain result, record it and check whether the task exists before trying again. If uncertainty remains, give the user the task record path and ask them to resolve it. Reuse a confirmed task reference when retrying or resuming. If the project requires a tracker key for a step, hold that step until the key is available and complete any analysis the project allows.
 
 ## 2. Agree on behavior
 
-The analyst checks current code, contracts, project documentation, and tests. Consult [relevant decisions](#remember-decisions-across-tasks). Record the baseline examined, what already exists, and the behavior that should change. Write a use-case spec covering the actor or trigger, inputs, expected flow, observable outcome, significant alternatives, and acceptance checks.
+Check current code, contracts, project documentation, and tests. Consult [relevant decisions](#remember-decisions-across-tasks). Record the baseline examined, what already exists, and the behavior that should change.
 
-Resolve routine questions from project sources. Bring the human questions that change behavior, scope, or risk, with options and a recommendation when possible. Record the answers. Begin implementation after the human agrees to the spec.
+When the user has asked for implementation and the desired behavior and acceptance checks are clear from the request and project sources, use them as the spec. Follow any project requirements for a formal spec or separate approval. Resolve routine questions from project sources. When an unresolved decision would materially affect behavior, scope, or risk, propose the expected outcome and acceptance checks, record the human's decision, and wait for agreement before implementing the affected change. For a task with significant alternative flows, use a use-case spec covering the actor or trigger, inputs, expected flow, observable outcome, alternatives, and acceptance checks.
 
 ## Remember decisions across tasks
 
@@ -42,19 +46,23 @@ When assessing an idea or preparing a spec, read the relevant decision sources a
 
 ## 3. Implement and verify
 
-Assign one developer session to the task after the spec is agreed. Give it the spec, baseline, and acceptance checks. Record how to reach the session when a reference is available. If you cannot start it directly, prepare the handoff for a separate session and mark implementation as pending. The assigned developer checks the workspace against the recorded baseline and follows the project's branch rules. Reuse the intended task branch when it fits those rules. Create a branch only when the project calls for one and the action is authorized. Use the [change history templates](#change-history-templates) for branch names and descriptions. Preserve unrelated changes and implement within the agreed scope. Bring any material change to the spec back to the human.
+The current session can implement once behavior is agreed. Use a separate developer session when the user or project requires one or when delegating implementation. Assign one developer, give it the spec, baseline, and acceptance checks, and record how to reach it when a reference is available. If a required separate session cannot be started directly, prepare a manual handoff and mark implementation as pending.
+
+Check the workspace against the recorded baseline and follow the project's branch rules. Reuse the intended task branch when it fits those rules. Create a branch only when the project calls for one and the action is authorized. Use the [change history templates](#change-history-templates) for branch names and descriptions. Preserve unrelated changes and implement within the agreed scope. Bring any material change to the spec back to the human.
 
 Run focused checks during development and the project's relevant final checks. Tie the results to the agreed spec version, comparison base, and exact change tested, such as a commit or a saved diff that includes the in-scope changes. Record test commands, outcomes, test counts when available, and any blocked or skipped checks. A run with zero relevant tests leaves those scenarios unverified.
 
 ## 4. Hand off the diff for review
 
-When the first diff is ready, assign one independent reviewer session to the task. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff and share it with the human along with the check results while review proceeds.
+Use independent review when the user requests it or project rules require it. If an independent check could resolve a material risk, bring that decision to the user. When review does not apply, report it as not required and still report the verification results.
 
-If the environment requires a manual handoff, use the route in the project profile. Keep review pending until the assigned reviewer can take the diff.
+When independent review applies and the first diff is ready, assign one independent reviewer session to the task. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff and share it with the human along with the check results while review proceeds.
+
+If the environment requires a manual handoff, use the route in the project profile. Keep required review pending until the reviewer completes it, including when the review route is unavailable.
 
 ## 5. Review and resolve findings
 
-Keep the assigned developer and reviewer for every round on the task. The reviewer records the spec version, comparison base, and exact change reviewed. The reviewer describes each finding with its location, consequence, and evidence. The developer checks the finding against the current change and records one of these dispositions:
+Keep any assigned developer and reviewer for every round on the task. The reviewer records the spec version, comparison base, and exact change reviewed. The reviewer describes each finding with its location, consequence, and evidence. The developer checks the finding against the current change and records one of these dispositions:
 
 - **Confirmed.** Fix within scope and record the evidence.
 - **Dismissed.** Record the evidence that resolves the concern.
@@ -64,17 +72,17 @@ After a fix or requested cleanup, the developer records the updated diff, reruns
 
 ## 6. Publish and respond to feedback
 
-When the user asks for a PR, confirm that verification and independent review are complete for the agreed spec and the change you intend to publish. If review is pending or publication is unavailable, prepare the title, description, and diff for handoff and record publication as pending.
+When the user asks for a PR, confirm that verification and any required independent review are complete for the agreed spec and the change you intend to publish. If a required check is incomplete or failing, required review is pending, or publication is unavailable, prepare the title, description, and diff for handoff and record publication as pending.
 
 Follow the profile and project rules for commits and pushes. Use the [change history templates](#change-history-templates) when preparing commit messages and PRs. If a hook fails, inspect its output, fix the cause within scope, and rerun the affected check. Retry the authorized action once the issue is resolved. Before retrying a push, repeat the outgoing diff comparison below and any checks or review affected by the fix. If the failure remains or requires a decision, report it and keep the action pending. Keep required checks in effect.
 
-After preparing the outgoing commits, compare their exact diff against the intended PR base with the reviewed change before pushing. If the diff or base changed, repeat the affected checks and return the change to the assigned reviewer before publication. Apply the project's rules for linking or closing related tasks.
+After preparing the outgoing commits, compare their exact diff against the intended PR base with the verified change before pushing. If the diff or base changed, repeat the affected checks and repeat independent review when required before publication. Apply the project's rules for linking or closing related tasks.
 
-After publication, read back the PR's base and head and verify that its exact diff matches the reviewed change. Record the PR reference and both revisions. If they differ from what you verified, record what needs rechecking before reporting the PR ready. Report local checks and remote CI for the current head separately.
+After publication, read back the PR's base and head and verify that its exact diff matches the verified change. Record the PR reference and both revisions. If they differ from what you verified, record what needs rechecking before reporting the PR ready. Report local checks and remote CI for the current head separately.
 
-For colleagues' findings, refresh the PR's base, head, and feedback, then run the same validation and fix loop with the assigned developer and reviewer. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
+For colleagues' findings, refresh the PR's base, head, and feedback, then run the same verification and fix steps. Use the assigned developer and reviewer where those roles apply. Apply the same checks before sending updates and after they appear in the PR. Push verified fixes to the existing PR branch within the user's authorization. If a push is pending, record the fix as local and the PR update as pending. Confirm the new remote head before reporting the fix as published.
 
-Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current reviewed change for the agreed spec. Check required CI results for that head, required approvals, and any manual acceptance checks. Keep merge readiness pending while review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
+Before reporting the PR ready to merge, refresh its base and head and confirm that the published diff matches the current verified change for the agreed spec. Confirm that any required independent review, CI for that head, approvals, and manual acceptance checks are complete. Keep merge readiness pending while required review or a PR update is pending, or while required evidence is missing, stale, or failing. CI that starts after PR creation is checked at this stage. Give the human the final diff and check status. The human makes the merge decision and merges the PR.
 
 ## Change history templates
 
@@ -95,8 +103,8 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 
 ## Resume in any session
 
-Update the task record at each handoff with the stage, owner of the next action, spec approval, exact diff identity, checks, and review decisions. Use the location agreed in the profile.
+Create or update the task record at each handoff with the stage, owner of the next action, agreed spec or acceptance checks, exact diff identity, check results, and any review decisions. Use the location agreed in the profile.
 
-To resume, read the record and refresh relevant task or PR updates, including the current PR base and head if there is a PR. If requirements changed, resolve any material differences with the human before continuing. Compare the agreed spec version, comparison base, and exact change with the recorded evidence. If any of them changed, mark affected evidence as stale. The assigned developer reruns the affected checks and returns the updated diff to the assigned reviewer when review needs to be repeated.
+To resume, read the record and refresh relevant task or PR updates, including the current PR base and head if there is a PR. If requirements changed, resolve any material differences with the human before continuing. Compare the agreed spec version, comparison base, and exact change with the recorded evidence. If any of them changed, mark affected evidence as stale. The developer reruns the affected checks and returns the updated diff to the assigned reviewer when review needs to be repeated.
 
-A new session can coordinate the task. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, record the blocked handoff and keep that step pending.
+A new session can coordinate the task and continue work that does not require an assigned session. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, record the blocked handoff and keep that step pending.
