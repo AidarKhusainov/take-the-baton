@@ -29,10 +29,10 @@
 
 - Base revision:
 - Checkout or worktree, branch, and accessible commit or complete patch for handoff:
-- Exact change tested (commit or diff reference):
+- Exact source tree tested (commit or base plus diff) and any other inputs that affect the result:
 - Spec version used for the checks:
 - Latest diff sent to the reviewer:
-- Commands and observed results:
+- Commands and observed results, marked preliminary or final:
 - Skipped or blocked checks:
 - Remote CI and checked revision:
 - Merge readiness and outstanding checks:

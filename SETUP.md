@@ -49,7 +49,9 @@ Look for confirmed decisions, useful project commands, and unfinished work. Veri
 
 ## Choose how to start the workflow
 
-Ask the following two questions together before preparing the setup proposal. Use the user's language, keep the order and option codes, and use the default keyword `эстафета` in Russian and `baton` otherwise. Reuse any answer the user has already given. Ask only for missing choices on a rerun.
+Before asking about activation, check which instruction locations the host can load for this project and how they can find the private profile. If only manual startup is available and the user has not requested a feasible shared team rule, go straight to the setup proposal with the [manual prompt](#manual-startup). Preserve any preferences already given and record `manual` as the route. Use **Not applicable** for choices skipped because they cannot affect the setup.
+
+For supported routes, ask only the applicable, unanswered questions before preparing the setup proposal. Ask them together when both apply. Use the user's language, keep the order and option codes, and use the default keyword `эстафета` in Russian and `baton` otherwise. Reuse any answer the user has already given. Ask only for missing choices on a rerun.
 
 > **1. When should Take the Baton start in this project?**
 >
@@ -61,7 +63,7 @@ Ask the following two questions together before preparing the setup proposal. Us
 > - **2A. Just me.** Use personal instructions to find my private profile.
 > - **2B. My team.** Prepare a shared project instruction for how each developer finds their own private profile.
 >
-> Reply with both choices, for example `1A, 2A`. To choose another keyword, include it with `1B`.
+> Reply with the requested choices, for example `1A, 2A` when both questions apply. To choose another keyword, include it with `1B`.
 
 Treat the answers as preferences for the proposal. Confirm any file changes after showing the proposal. Keep permission to read chat history separate.
 
@@ -70,9 +72,13 @@ Find an instruction location that the host already loads for the selected projec
 - **Personal setup.** Propose a rule in the user's existing personal instructions, scoped to the project. Point it to the agreed profile path and use the source URL and revision stored in the profile.
 - **Team setup.** Show the proposed change to the shared project instructions. Give the team a common way to find each developer's private profile, such as the same project-relative ignored path or a personal pointer for external storage. Keep personal paths and private profile contents in personal storage. Apply the shared instruction edit only if the user approves that exact edit and project rules allow it.
 
-If no supported instruction location or profile lookup can be established, keep the user's choices and offer manual startup. Report the activation route as `manual` when manual startup is the agreed route. Fill in the placeholders in this copyable prompt.
+### Manual startup
+
+Fill in the source URL and revision and the profile path. Choose the last sentence for the user's request.
 
 > Use Take the Baton for this project. Read the workflow from `<source URL and revision>` and the profile at `<profile path>`. Work on `<task description or tracker key>`.
+
+For resumption, end with “Resume from `<original task record path>`” or “Resume `<task key>` using the original profile at `<original profile path>`.”
 
 ## Confirm one proposal
 
