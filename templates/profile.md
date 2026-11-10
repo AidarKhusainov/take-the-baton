@@ -7,6 +7,9 @@
 - Private decision journal path, if used:
 - Version control and default comparison base:
 - Take the Baton source URL and revision:
+- Activation mode (default or keyword) and keyword, if used:
+- Activation scope (personal or team):
+- Activation instruction location, profile lookup, and route status:
 - Task record directory:
 - Private storage and verified local exclusion (if inside the checkout):
 

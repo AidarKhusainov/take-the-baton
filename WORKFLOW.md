@@ -2,7 +2,7 @@
 
 The human decides expected behavior, material tradeoffs, and when to publish or merge. Agents handle routine technical work within the approved scope.
 
-Read the work project's instructions and the profile supplied by the user or referenced by the task record. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep private profiles, task records, and decision journals out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
+Read the work project's instructions and the profile located through the activation instructions, supplied by the user, or referenced by the task record. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep private profiles, task records, and decision journals out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
 
 Use the steps that apply to the request. A straightforward change can stay in the current session. Agree on material decisions before implementing the affected change, save a task record for work that needs to continue in another session, and run independent review when required. The user's instructions and project rules apply to every task.
 

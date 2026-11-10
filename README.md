@@ -12,6 +12,8 @@ The agent inspects project tools and checks, shows a short plan with any recomme
 
 [Setup instructions](SETUP.md) · [Workflow](WORKFLOW.md)
 
+Choose [when the workflow starts and who the setup applies to](SETUP.md#choose-how-to-start-the-workflow). You can use it by default for the project or start a request with a keyword, and configure the entry point for yourself or propose a shared rule for your team.
+
 During setup, the agent can [recover context from recent project chats](SETUP.md#recover-context-from-recent-chats-if-approved) with your permission.
 
 ## Give it an idea or a task
@@ -33,7 +35,7 @@ The agent records the decision and its source in a private project journal. It b
 
 A straightforward change can stay in one session with focused checks. The agent saves a task record when work needs to pass to another session or resume later, and arranges independent review when you ask for it or the project requires it. You can inspect the diff while review proceeds. You resolve disputed findings, decide when to open the PR, and merge it.
 
-To resume in a new session, ask the agent to use this workflow and give it the task record path, or the task key and the profile path if the profile lives outside its default location. The agent uses the record to reach the assigned developer and reviewer or replace an unavailable session when authorized. It checks the agreed spec and exact change before reusing test or review evidence.
+To resume in a new session, start the workflow using your selected mode and give the agent the task record path or task key. With manual startup, ask the agent to use Take the Baton and give it the profile path if the profile lives outside its default location. The agent uses the record to reach the assigned developer and reviewer or replace an unavailable session when authorized. It checks the agreed spec and exact change before reusing test or review evidence.
 
 ## Optional skills
 
