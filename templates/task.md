@@ -34,7 +34,7 @@
 - Latest diff sent to the reviewer:
 - Commands and observed results, marked preliminary or final; for a before/after handoff, the baseline with the test-only patch or equivalent tree, and the candidate with the same test:
 - Skipped or blocked checks:
-- Remote CI run reference and tested base and head, or exact integrated tree tested:
+- Remote CI check, run reference, and verified input (head alone, base and head, or exact integrated tree):
 - Merge readiness and outstanding checks:
 
 ## Review

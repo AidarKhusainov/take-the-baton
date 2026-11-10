@@ -41,6 +41,6 @@ For each row, fill in the actual tool or command, the destination or working dir
 - PR title, body template, and task-linking rules:
 - Existing hooks, check commands, and triggers:
 - Required checks and reviews before publication (push, PR opening, or marking a draft ready, as applicable):
-- Required reviews, CI, approvals, and manual checks before merge, including those that run in the open PR:
+- Required reviews, CI, approvals, and manual checks before merge, including which checks run in the open PR and the revision or tree each CI check must cover:
 - Decisions or actions reserved for the user:
 - Where task records and review material may be stored:
