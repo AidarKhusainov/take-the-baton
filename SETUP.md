@@ -74,15 +74,25 @@ Find an instruction location that the host already loads for the selected projec
 
 ### Manual startup
 
-Fill in the source URL and revision and the profile path. Choose the last sentence for the user's request.
+Fill in the source URL and revision and the paths needed for the request.
+
+**Start work on a task**
 
 > Use Take the Baton for this project. Read the workflow from `<source URL and revision>` and the profile at `<profile path>`. Work on `<task description or tracker key>`.
 
-For resumption, end with “Resume from `<original task record path>`” or “Resume `<task key>` using the original profile at `<original profile path>`.”
+**Resume from a record**
+
+> Use Take the Baton for this project. Read the workflow from `<source URL and revision>`. Resume from `<original task record path>`.
+
+**Resume by task key**
+
+> Use Take the Baton for this project. Read the workflow from `<source URL and revision>`. Resume `<task key>` using the original profile at `<original profile path>`.
 
 ## Confirm one proposal
 
 Keep the profile and task records private. Use `.take-the-baton/profile.md` and `.take-the-baton/tasks/` in the selected project only when the directory is untracked and a local VCS exclusion can be verified. Check for any tracked or staged files under that path. For Git, resolve the local exclude file with `git rev-parse --git-path info/exclude` and match the actual directory relative to the repository root, including any module prefix. A tracked or staged path, or an exclusion that cannot be verified, calls for an agreed private location outside the checkout for both the profile and task records. Preserve existing tracked or staged files.
+
+If the workflow registers tasks, record where this developer's registration records live for the project and tracker destination. One worktree can use its task directory. When setting up another worktree, reuse the original private registration records or the agreed coordinator that can reconcile prior attempts. Propose a separate private location only if it is needed and preserves access to earlier attempts. If the route cannot be verified, report registration as pending.
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
@@ -91,7 +101,7 @@ Fill in this **before** report in the user's language. Include the proposed stor
 > **Proposed setup**
 >
 > - Project and scope — `<project or module and path>`
-> - Private storage — `<profile and task record paths and any local exclusion to add>`
+> - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
 > - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found>`
 > - Changes — `<exact proposed edits, or the manual startup prompt>`
 > - Tools and checks — `<main routes, required checks, and any limitations>`

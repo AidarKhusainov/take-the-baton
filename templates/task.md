@@ -12,7 +12,7 @@
 - Assigned developer session reference:
 - Assigned independent reviewer session reference:
 - Session reassignments and reasons, if any:
-- Profile path:
+- Profile reference (absolute path or `record-relative: <path>` from this record's directory):
 - PR reference:
 - Last verified PR base and head:
 - PR publication or update status:
@@ -32,9 +32,9 @@
 - Exact source tree tested (commit or base plus diff) and any other inputs that affect the result:
 - Spec version used for the checks:
 - Latest diff sent to the reviewer:
-- Commands and observed results, marked preliminary or final:
+- Commands and observed results, marked preliminary or final; for a before/after handoff, the baseline with the test-only patch or equivalent tree, and the candidate with the same test:
 - Skipped or blocked checks:
-- Remote CI and checked revision:
+- Remote CI run reference and tested base and head, or exact integrated tree tested:
 - Merge readiness and outstanding checks:
 
 ## Review

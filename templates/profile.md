@@ -34,7 +34,7 @@ For each row, fill in the actual tool or command, the destination or working dir
 
 ## Project rules
 
-- Task destination and whether a tracker key is required:
+- Task destination, whether a tracker key is required, and private registration records or coordinator used across this developer's worktrees:
 - Boundaries on edits and verification:
 - Branch naming and description conventions:
 - Commit subject and body conventions:
