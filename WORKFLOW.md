@@ -45,6 +45,8 @@ Use these examples to decide when to ask the user about an open choice.
 
 Follow decisions already made in the project or by the user. Handle local implementation choices and selection among authorized tools using project conventions. When asking, explain the consequence, give the viable options, and recommend one when the evidence supports it. The user decides disputed review findings that require a decision, authorizes PR publication, and decides when to merge.
 
+When an unresolved implementation choice would materially affect the project, have that discussion before editing the affected code. Record the selected approach and its rationale with the agreed behavior. Implement the selected approach in small increments that can be checked independently.
+
 For a full use-case spec, optionally use [use-case-spec](https://github.com/AidarKhusainov/skills/blob/master/use-case-spec/SKILL.md) as the writing format. Keep acceptance checks in the task record or chat when the format leaves them outside the spec.
 
 ## Remember decisions across tasks
@@ -57,9 +59,13 @@ When assessing an idea or preparing a spec, read the relevant decision sources a
 
 ## 3. Implement and verify
 
-The current session can implement once behavior is agreed. Use a separate developer session when the user or project requires one or when delegating implementation. Assign one developer, give it the spec, baseline, and acceptance checks, and record how to reach it when a reference is available. If a required separate session cannot be started directly, prepare a manual handoff and mark implementation as pending.
+The current session can implement once behavior and any required approach decisions are agreed. Use a separate developer session when the user or project requires one or when delegating implementation. Assign one developer, give it the spec, baseline, and acceptance checks, and record how to reach it when a reference is available. If a required separate session cannot be started directly, prepare a manual handoff and mark implementation as pending.
 
 Check the workspace against the recorded baseline and follow the project's branch rules. Reuse the intended task branch when it fits those rules. Create a branch only when the project calls for one and the action is authorized. Use the [change history templates](#change-history-templates) for branch names and descriptions. Preserve unrelated changes and implement within the agreed scope. Bring any material change to the spec back to the human.
+
+For a reproducible bug or new testable behavior, use the agreed acceptance criteria to define the expected result. Add or reuse a focused test before changing the implementation. Run it against the prior implementation and confirm that the failure demonstrates the bug or missing behavior. If it already passes, check that it covers the intended scenario and that a change is still needed. Make the smallest change that satisfies the criterion, then rerun the same test and confirm that it passes. Record the criterion, the test reference, and the observed before and after results.
+
+For a refactor that preserves behavior, use existing tests that cover the affected behavior when available. If a run is unavailable, report which result is missing, what blocked it, and what other checks were possible. Follow the project's requirements for verification.
 
 Run focused checks during development and the project's relevant final checks. Tie the results to the agreed spec version, comparison base, and exact change tested, such as a commit or a saved diff that includes the in-scope changes. Record test commands, outcomes, test counts when available, and any blocked or skipped checks. A run with zero relevant tests leaves those scenarios unverified.
 
@@ -85,7 +91,7 @@ After a fix or requested cleanup, the developer records the updated diff, reruns
 
 Before asking a human to review the diff, run the required checks available at that stage. Complete any applicable preliminary review and fix confirmed findings within scope, then rerun affected checks on the current diff. Bring decisions that block progress to the user when they arise.
 
-Give the human a brief summary of what changed and why, the exact diff with links to the key code locations, the check results, and any questions that require their decision. List any pending required checks or preliminary reviews and explain what is holding them up. Mark the handoff as pending while a prerequisite for this stage is incomplete or failing.
+Give the human a brief summary of what changed and why, the exact diff with links to the key code locations, the check results, and any questions that require their decision. For behavior changes, link the relevant acceptance criteria to the tests or other checks and report the before and after results when test-first verification applies. List any pending required checks or preliminary reviews and explain what is holding them up. Mark the handoff as pending while a prerequisite for this stage is incomplete or failing.
 
 ## 6. Publish and respond to feedback
 
