@@ -23,11 +23,13 @@ Setup is complete when project scope, private storage, and the saved profile mee
 2. Read the existing `.take-the-baton/profile.md` or the profile path supplied by the user or configured in the activation instructions. Keep explicit choices and flag conflicts with current project rules or access.
 3. Inspect connectors, CLI tools, and capabilities already exposed to the agent. Use scoped read-only checks where available. Distinguish a detected tool from verified access to the intended project. Establish write access through read-only permission information when available.
 
-Identify a route for each action in the profile template. A single tool can cover several actions. Record the actual command or tool, working directory or destination, access status, and fallback. Use `verified`, `unverified`, or `unavailable` for tool access. Use `manual` for a deliberate handoff.
+Identify a route for each action in the profile template. A single tool can cover several actions. Record the actual command or tool, working directory or destination, access status, and fallback. Mark a route `verified` only for the action, destination, and environment confirmed by a scoped check during setup. For write actions, use read-only permission information when it is available. Record prior chat evidence as context and leave current access `unverified` until confirmed. Use `unavailable` when the route cannot be used in this environment and `manual` for a deliberate handoff. If a route covers only part of an action, record what it can confirm and the fallback for the rest. For example, reading CI failures does not by itself confirm the status of every required check.
+
+For a manual developer handoff, use the [resumption prompts](#manual-startup). Use the original record path when available, or the task key and the original profile if needed for lookup. For manual independent review, record who can receive the [review inputs](WORKFLOW.md#4-hand-off-the-diff-for-review) and how they return findings. Keep required review pending until an independent reviewer completes it.
 
 Reuse tools that fit the project rules. Where a service is unfamiliar or unavailable, propose a manual handoff or describe the adapter that would be needed. Direct required sign-in to the service's normal interface and keep credentials out of the profile.
 
-Find existing hooks, linters, formatters, validators, and CI checks. Record their commands or configuration, when they run, and which changes they cover. Also find the project's conventions for branch names and descriptions, commit subjects and bodies, and PR titles and templates. Record which checks or reviews are required before pushing, opening a PR, or marking a draft ready. Separately record what must be complete before merge, including reviews and CI that need an open PR. For required PR CI, record whether each check must cover the head alone or the base and outgoing change together. Keep personal check commands separate from required team checks.
+Find existing hooks, linters, formatters, validators, and CI checks. Record their commands or configuration, when they run, which changes they cover, and how to tell that each required check passed. Use project evidence for prerequisites and success criteria, such as required test counts or fresh reports. Also find the project's conventions for branch names and descriptions, commit subjects and bodies, and PR titles and templates. Record which checks or reviews are required before pushing, opening a PR, or marking a draft ready. Separately record what must be complete before merge, including reviews and CI that need an open PR. For required PR CI, record whether each check must cover the head alone or the base and outgoing change together. Keep personal check commands separate from required team checks.
 
 Record the project's existing decision sources in the profile when they are known. Add a private decision journal only when the developer asks to keep decisions across tasks.
 
@@ -96,15 +98,15 @@ If the workflow registers tasks, record where this developer's registration reco
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
-Fill in this **before** report in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. Include material unresolved choices and keep check recommendations separate from the changes being approved.
+Fill in this **before** report in the user's language. Give the full proposed paths to the profile and task records. If a path in the profile is relative, state what it is relative to. Show the proposed profile and the exact changes to any activation instructions, or link to the diff. For manual startup, give a copyable prompt. If the proposal covers several working copies or environments, say how each finds the same private records and how commands run in the working copy selected for the task. Mark unverified routes as such. Include material unresolved choices and keep check recommendations separate from the changes being approved.
 
 > **Proposed setup**
 >
 > - Project and scope — `<project or module and path>`
-> - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
-> - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found>`
+> - Private storage — `<full profile path and task record directory, local exclusion if needed, and shared registration route across your worktrees if applicable>`
+> - Startup — `<mode, personal or team scope, keyword if used, and the instruction file and profile lookup for the chosen route>`
 > - Changes — `<exact proposed edits, or the manual startup prompt>`
-> - Tools and checks — `<main routes, required checks, and any limitations>`
+> - Tools and checks — `<main routes, what access was verified, and when required checks run and how they are confirmed>`
 >
 > - **S1. Confirm the proposal.**
 > - **S2. Change the proposal.** Tell me what to change.
@@ -128,7 +130,7 @@ Fill in this **after** report in the user's language. Use one line per checklist
 >
 > **Next request** — `<copyable prompt>`
 
-Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the agreed profile, local exclusion, and activation instruction changes. Workflow actions follow the user's task request and the project's approval rules.
+Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. If the activation rule was saved and still needs a fresh-session check, also give a short read-only request to try in a new session without supplying the profile path. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the agreed profile, local exclusion, and activation instruction changes. Workflow actions follow the user's task request and the project's approval rules.
 
 On rerun, compare the existing profile, storage protection, activation instructions, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 

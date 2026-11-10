@@ -77,7 +77,7 @@ For a refactor that preserves behavior, use existing tests that cover the affect
 
 If a required test run is unavailable, including the before or after run for a bug fix or new behavior, record which result is missing, what blocked it, and what other checks were possible. Use the handoff route in the profile or give the user the command and the exact inputs. For the before run, provide the original implementation revision and the test-only patch, including any fixtures, or an accessible equivalent tree with the test and without the fix. For the after run, provide the exact candidate with the same test and the fix. Continue only with steps that project rules allow while the run is pending. Record the outcome after the run actually takes place.
 
-Run focused checks during development and the project's relevant final checks. Record each command, outcome, test count when available, and any blocked or skipped checks. A run with zero relevant tests leaves those scenarios unverified.
+Run focused checks during development and the project's relevant final checks. Record each command, outcome, test count when available, and any blocked or skipped checks. Count a required check as passed only when the recorded result meets the project's success criteria. A run with zero relevant tests leaves those scenarios unverified.
 
 ### Decide which verification results still apply
 

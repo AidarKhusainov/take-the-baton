@@ -1,7 +1,7 @@
 # Take the Baton project profile
 
 - Project and scope:
-- Project root or module:
+- Project root or module and working directory for commands (resolve it in the task's working copy if the profile is shared):
 - Project instructions:
 - Existing project decision sources, if any:
 - Private decision journal path, if used:
@@ -10,12 +10,12 @@
 - Activation mode (default or keyword) and keyword, if used:
 - Activation scope (personal or team):
 - Activation instruction location, profile lookup, and route status:
-- Task record directory:
+- Task record directory (full path or relative path with its base):
 - Private storage and verified local exclusion (if inside the checkout):
 
 ## Tool routes
 
-For each row, fill in the actual tool or command, the destination or working directory, the evidence of access, and the fallback. Record `verified`, `unverified`, `unavailable`, or `manual` in the access column. Add any project rules that apply to the action.
+For each row, fill in the actual tool or command, the destination or working directory, the evidence of access, and the fallback. Record `verified`, `unverified`, `unavailable`, or `manual` in the access column. Add any project rules that apply to the action. Scope verification to the operation, destination, and environment checked. Record partial access and its fallback in the same row.
 
 | Action | Route and scope | Access and evidence | Fallback |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ For each row, fill in the actual tool or command, the destination or working dir
 - Branch naming and description conventions:
 - Commit subject and body conventions:
 - PR title, body template, and task-linking rules:
-- Existing hooks, check commands, and triggers:
+- Existing hooks and check commands, triggers, prerequisites, and evidence of success:
 - Required checks and reviews before publication (push, PR opening, or marking a draft ready, as applicable):
 - Required reviews, CI, approvals, and manual checks before merge, including which checks run in the open PR and the revision or tree each CI check must cover:
 - Decisions or actions reserved for the user:
