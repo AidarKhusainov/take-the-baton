@@ -50,7 +50,6 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 ## Review
 
 - Reviewed spec version, comparison base, and exact change:
-- Review status:
 - Human decisions:
 
 | Finding and evidence | Disposition and reason | Fix and recheck |

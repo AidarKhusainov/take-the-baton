@@ -124,8 +124,8 @@ Use the requested outcome to decide how far to proceed. One explicit request can
 | Next action | What must be true |
 | --- | --- |
 | Hand off the diff for human review | Run required checks available at this stage. Complete any applicable preliminary review, fix confirmed findings within scope, and rerun affected checks. If a prerequisite is incomplete or failing, mark the handoff pending and keep the diff available for inspection. |
-| Push the branch | Confirm authorization and meet the project's push requirements. Compare the outgoing commits against the intended PR base and verify that the diff matches the checked change. Checks required at this stage must be final for that change. |
-| Open a draft PR | Confirm authorization to publish and meet the project's requirements for pushing and opening a draft. Checks or reviews that require an open PR can follow publication unless the project requires an earlier equivalent check. |
+| Push the branch | Ensure the push is authorized and meet the project's push requirements. Compare the outgoing commits against the intended PR base and verify that the diff matches the checked change. Checks required at this stage must be final for that change. |
+| Open a draft PR | Ensure publication is authorized and meet the project's requirements for pushing and opening a draft. Checks or reviews that require an open PR can follow publication unless the project requires an earlier equivalent check. |
 | Open a PR as ready or mark a draft ready for review | Meet the applicable push and PR requirements and the project's requirements for entering review. For an existing draft, confirm its current base, head, and diff match the verified change before changing its status. |
 | Report ready to merge | Refresh the PR base and head and confirm that the published diff matches the verified change for the agreed spec. Required CI, reviews, approvals, and manual acceptance checks must be complete for this revision, and any required PR update must be published. The human decides whether to merge and performs the merge. |
 
