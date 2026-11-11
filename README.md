@@ -2,17 +2,29 @@
 
 [Русский](README.ru.md)
 
-A workflow for coding agents, from a task to a pull request. It saves the diff, check results, and review decisions when another session needs to pick up the work.
+“Look into this task, make the fix, and open a pull request.” With Take the Baton, your coding agent carries out the steps you agree on and asks when it needs a decision. If you need to pick up the work in a new chat, the agent leaves a record of the changes, check results, and next step.
 
-In your project, send your coding agent this message.
+## Getting started
+
+Open a chat with your coding agent in your project and send this message.
 
 ```text
 Set up Take the Baton for this project.
 https://github.com/AidarKhusainov/take-the-baton
 ```
 
-The agent follows the [setup guide](SETUP.md) to configure Take the Baton for your project.
+If you chose `baton` as your keyword during setup, start your request with it.
 
-Once setup is complete, try “Use Take the Baton to work on PROJ-123.”
+To investigate a task:
 
-[Workflow](WORKFLOW.md) · [MIT License](LICENSE)
+```text
+Baton: investigate PROJ-123
+```
+
+To take a task through to a pull request:
+
+```text
+Baton: look into PROJ-123, make the fix, and open a pull request.
+```
+
+[Setup guide](SETUP.md) · [Workflow](WORKFLOW.md) · [MIT License](LICENSE)
