@@ -4,7 +4,7 @@
 
 Take the Baton helps your coding agent work through a task, from investigation to opening a pull request. The agent carries out the agreed steps and asks for your decision when a choice would change the expected behavior, expand the scope, or require accepting a significant risk.
 
-If you need to move the work to a new chat, the agent saves a task record with what changed, how the checks went, and what to do next. To resume, include the path to that record in your request.
+If you need to move the work to a new chat, the agent saves a task record with what changed, how the checks went, and what to do next. To resume, start Take the Baton using the method you set up and include the path to the record. For manual startup, use the [resume prompt](SETUP.md#manual-startup).
 
 ## Getting started
 
