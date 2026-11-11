@@ -2,7 +2,9 @@
 
 [Русский](README.ru.md)
 
-“Look into this task, make the fix, and open a pull request.” With Take the Baton, your coding agent carries out the steps you agree on and asks when it needs a decision. If you need to pick up the work in a new chat, the agent leaves a record of the changes, check results, and next step.
+Take the Baton helps your coding agent work through a task, from investigation to opening a pull request. The agent carries out the agreed steps and asks for your decision when a choice would change the expected behavior, expand the scope, or require accepting a significant risk.
+
+If you need to move the work to a new chat, the agent saves a task record with what changed, how the checks went, and what to do next. To resume, include the path to that record in your request.
 
 ## Getting started
 
@@ -13,7 +15,7 @@ Set up Take the Baton for this project.
 https://github.com/AidarKhusainov/take-the-baton
 ```
 
-If you chose `baton` as your keyword during setup, start your request with it.
+After setup, use the prompt from your agent’s report. The examples below are for projects configured to start Take the Baton with the keyword `baton`.
 
 To investigate a task:
 
