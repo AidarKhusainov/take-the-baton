@@ -103,13 +103,13 @@ Keep any assigned developer and reviewer for every round on the task, following 
 
 - **Confirmed.** Fix within scope and record the evidence.
 - **Dismissed.** Record the evidence that resolves the concern.
-- **Needs a decision.** Bring the human the tradeoff when the finding is disputed, expands scope, or requires accepting a material risk.
+- **Needs a decision.** Before changing the affected work, explain the finding, evidence, and tradeoff and ask the user to decide when it is disputed, expands scope, or requires accepting a material risk.
 
 After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the assigned reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
 
 ### Report the change to the human
 
-Give the human a brief summary of what changed and why, the exact diff with links to key code locations, the check results, and any questions that require their decision. For behavior changes, link acceptance criteria to checks and report before and after results when test-first verification applies. Report local checks and remote CI separately, with the revisions or tree each checked. List pending requirements and explain what is holding them up. Use the [action requirements](#action-requirements) to determine readiness.
+Give the human a brief summary of what changed and why, the exact diff with links to key code locations, the check results, and any questions that require their decision. For behavior changes, link acceptance criteria to checks and report before and after results when test-first verification applies. Report local checks, independent review, and remote CI separately, with the revisions or tree each covered. If no independent review took place, state that explicitly. A developer's check of their own diff and test results counts as local verification. List pending requirements and explain what is holding them up. Use the [action requirements](#action-requirements) to determine readiness.
 
 Optionally use [clear-explanations](https://github.com/AidarKhusainov/skills/blob/master/clear-explanations/SKILL.md) when writing reports or questions for the human.
 
@@ -118,6 +118,8 @@ Optionally use [clear-explanations](https://github.com/AidarKhusainov/skills/blo
 ### Action requirements
 
 Use the profile and current project rules to determine the requirements for each action. If the profile leaves a requirement unclear, check the project rules and ask only about unresolved conditions that affect the next action.
+
+Use the requested outcome to decide how far to proceed. One explicit request can authorize several actions, such as creating a branch, committing, pushing, and opening a PR. Carry out the authorized steps as their prerequisites are met. If the next in-scope action is ready and needs permission, name the action and its target and ask directly. Once the user approves it, continue to the next decision or the requested outcome. Ask separately for actions outside that authorization, such as rewriting published history.
 
 | Next action | What must be true |
 | --- | --- |

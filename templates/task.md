@@ -1,5 +1,20 @@
 # Task record
 
+## Current status
+
+- Stage and status:
+- Current revision or patch:
+- PR reference and publication status:
+- Last verified PR base and head:
+- Local verification status:
+- Independent review status:
+- Remote CI status for the published iteration:
+- Next action and owner:
+
+Update this summary when the revision, stage, or next action changes. Keep supporting evidence in the sections below.
+
+## Task and handoff
+
 - Task title:
 - Stable local ID:
 - Confirmed tracker key or URL:
@@ -7,15 +22,10 @@
 - Registration owner, submitted title, problem, and expected outcome:
 - Registration attempt status and request ID, if available:
 - Requested outcome (register, implement, or both):
-- Stage and status:
-- Next action and owner:
 - Assigned developer session reference:
 - Assigned independent reviewer session reference:
 - Session reassignments and reasons, if any:
 - Profile reference (absolute path or `record-relative: <path>` from this record's directory):
-- PR reference:
-- Last verified PR base and head:
-- PR publication or update status:
 
 ## Agreed behavior
 
