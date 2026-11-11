@@ -103,13 +103,13 @@ Keep any assigned developer and reviewer for every round on the task, following 
 
 - **Confirmed.** Fix within scope and record the evidence.
 - **Dismissed.** Record the evidence that resolves the concern.
-- **Needs a decision.** Bring the human the tradeoff when the finding is disputed, expands scope, or requires accepting a material risk.
+- **Needs a decision.** Before changing the affected work, explain the finding, evidence, and tradeoff and ask the user to decide when it is disputed, expands scope, or requires accepting a material risk.
 
 After a fix or requested cleanup, the developer records the updated diff, reruns the affected checks, and sends the new diff and results back to the assigned reviewer. The reviewer checks the fixes against the original findings and examines any other changes in the new diff. Finish the loop when each finding has a disposition, any required decisions are recorded, and the current diff has been reviewed. If a round leaves the same findings open without new evidence, show the human what remains and ask how to proceed.
 
 ### Report the change to the human
 
-Give the human a brief summary of what changed and why, the exact diff with links to key code locations, the check results, and any questions that require their decision. For behavior changes, link acceptance criteria to checks and report before and after results when test-first verification applies. Report local checks and remote CI separately, with the revisions or tree each checked. List pending requirements and explain what is holding them up. Use the [action requirements](#action-requirements) to determine readiness.
+Give the human a brief summary of what changed and why, the exact diff with links to key code locations, the check results, and any questions that require their decision. For behavior changes, link acceptance criteria to checks and report before and after results when test-first verification applies. Report local checks, independent review, and remote CI separately, with the revisions or tree each covered. If no independent review took place, state that explicitly. A developer's check of their own diff and test results counts as local verification. List pending requirements and explain what is holding them up. Use the [action requirements](#action-requirements) to determine readiness.
 
 Optionally use [clear-explanations](https://github.com/AidarKhusainov/skills/blob/master/clear-explanations/SKILL.md) when writing reports or questions for the human.
 
@@ -119,11 +119,13 @@ Optionally use [clear-explanations](https://github.com/AidarKhusainov/skills/blo
 
 Use the profile and current project rules to determine the requirements for each action. If the profile leaves a requirement unclear, check the project rules and ask only about unresolved conditions that affect the next action.
 
+Use the requested outcome to decide how far to proceed. One explicit request can authorize several actions, such as creating a branch, committing, pushing, and opening a PR. Carry out the authorized steps as their prerequisites are met. If the next in-scope action is ready and needs permission, name the action and its target and ask directly. Once the user approves it, continue to the next decision or the requested outcome. Ask separately for actions outside that authorization, such as rewriting published history.
+
 | Next action | What must be true |
 | --- | --- |
 | Hand off the diff for human review | Run required checks available at this stage. Complete any applicable preliminary review, fix confirmed findings within scope, and rerun affected checks. If a prerequisite is incomplete or failing, mark the handoff pending and keep the diff available for inspection. |
-| Push the branch | Confirm authorization and meet the project's push requirements. Compare the outgoing commits against the intended PR base and verify that the diff matches the checked change. Checks required at this stage must be final for that change. |
-| Open a draft PR | Confirm authorization to publish and meet the project's requirements for pushing and opening a draft. Checks or reviews that require an open PR can follow publication unless the project requires an earlier equivalent check. |
+| Push the branch | Ensure the push is authorized and meet the project's push requirements. Compare the outgoing commits against the intended PR base and verify that the diff matches the checked change. Checks required at this stage must be final for that change. |
+| Open a draft PR | Ensure publication is authorized and meet the project's requirements for pushing and opening a draft. Checks or reviews that require an open PR can follow publication unless the project requires an earlier equivalent check. |
 | Open a PR as ready or mark a draft ready for review | Meet the applicable push and PR requirements and the project's requirements for entering review. For an existing draft, confirm its current base, head, and diff match the verified change before changing its status. |
 | Report ready to merge | Refresh the PR base and head and confirm that the published diff matches the verified change for the agreed spec. Required CI, reviews, approvals, and manual acceptance checks must be complete for this revision, and any required PR update must be published. The human decides whether to merge and performs the merge. |
 
