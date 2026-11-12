@@ -4,7 +4,7 @@ The human decides expected behavior, material tradeoffs, and when to publish or 
 
 Read the work project's instructions. For explicit resumption, resolve the original profile from the [task record](#resume-in-any-session) or the original profile path supplied by the user. For new work, use the profile supplied by the user or found through activation. The default profile is `.take-the-baton/profile.md`. Use [SETUP.md](SETUP.md) when a profile or a private storage location is needed. Verify that in-project storage is untracked and locally excluded before writing. Keep private profiles, task records, and decision journals out of staging, commits, and publication. Follow the project rules and the user's authorizations throughout.
 
-Use the steps that apply to the request. A straightforward change can stay in the current session. Agree on material decisions before implementing the affected change, save a task record for work that needs to continue in another session, and run independent review when required. The user's instructions and project rules apply to every task.
+Use the steps that apply to the request. Implementation can stay in the current session. Agree on material decisions before implementing the affected change and save a task record when work needs to continue in another session. Send every implementation diff for [independent review](#4-hand-off-the-diff-for-review). The user's instructions and project rules apply to every task.
 
 ## Assess an idea
 
@@ -24,7 +24,7 @@ For explicit resumption, follow [the resumption steps](#resume-in-any-session). 
 - **Register an idea.** Follow [the registration steps](#register-a-task). Return the confirmed task reference, or the draft and pending status if remote creation is unavailable. Stop after registration unless the user also asked for implementation.
 - **Implement from a description.** Continue to [agree on behavior](#2-agree-on-behavior). Register the task first if the user requests registration or the project requires it. While registration is pending, continue only with work that project rules allow without a task key.
 
-Create a [task record](templates/task.md) when registering a task, before handing off implementation or review to another session, before pausing for later resumption, or when the user or project requires one. Otherwise, keep decisions, change references, and results in the current chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
+Create a [task record](templates/task.md) when registering a task, before handing off implementation or review outside the current chat, before pausing for later resumption, or when the user or project requires one. Otherwise, keep decisions, change references, and results in the current chat, including review by a subagent started in that chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
 
 ### Find a task record
 
@@ -91,11 +91,11 @@ When the spec, base, or change moves, re-evaluate recorded results and mark any 
 
 ## 4. Hand off the diff for review
 
-Use independent review when the user requests it or project rules require it. If an independent check could resolve a material risk, bring that decision to the user. When review does not apply, report it as not required and still report the verification results.
+Review every implementation diff, including small code, configuration, test, and documentation changes. For work that produces no diff, run independent review when the user requests it or the project requires it.
 
-For independent review outside a PR, assign one independent reviewer session when the first diff is ready. Record how to reach the session when a reference is available. The developer sends the reviewer the agreed spec, exact diff, project rules, and check results. Record the submitted diff. Keep the diff and check results available for the user to inspect during review. For review that requires an open PR, use the project's PR review route.
+When the first diff is ready, start one fresh reviewer subagent that did not implement the change. Give it the agreed behavior, comparison base, exact diff, project rules, and check results. Ask it to review the change without editing it. Record the reviewer reference when available and the diff it received. Keep that reviewer for follow-up rounds on the same task, as described in the [review and fix loop](#5-review-and-resolve-findings).
 
-If the environment requires a manual handoff, use the route in the project profile. Keep required review pending until the reviewer completes it, including when the review route is unavailable.
+If the host cannot start a reviewer subagent, use an independent reviewer session through the profile's handoff route. Keep review pending until an independent reviewer completes it. Follow any separate project requirements for review on an open PR.
 
 ## 5. Review and resolve findings
 
@@ -123,11 +123,11 @@ Use the requested outcome to decide how far to proceed. One explicit request can
 
 | Next action | What must be true |
 | --- | --- |
-| Hand off the diff for human review | Run required checks available at this stage. Complete any applicable preliminary review, fix confirmed findings within scope, and rerun affected checks. If a prerequisite is incomplete or failing, mark the handoff pending and keep the diff available for inspection. |
+| Hand off the diff for human review | Run required checks available at this stage. Complete the independent diff review when handing off an implementation change, fix confirmed findings within scope, and rerun affected checks. If a prerequisite is incomplete or failing, mark the handoff pending and keep the diff available for inspection. |
 | Push the branch | Ensure the push is authorized and meet the project's push requirements. Compare the outgoing commits against the intended PR base and verify that the diff matches the checked change. Checks required at this stage must be final for that change. |
 | Open a draft PR | Ensure publication is authorized and meet the project's requirements for pushing and opening a draft. Checks or reviews that require an open PR can follow publication unless the project requires an earlier equivalent check. |
-| Open a PR as ready or mark a draft ready for review | Meet the applicable push and PR requirements and the project's requirements for entering review. For an existing draft, confirm its current base, head, and diff match the verified change before changing its status. |
-| Report ready to merge | Refresh the PR base and head and confirm that the published diff matches the verified change for the agreed spec. Required CI, reviews, approvals, and manual acceptance checks must be complete for this revision, and any required PR update must be published. The human decides whether to merge and performs the merge. |
+| Open a PR as ready or mark a draft ready for review | Complete independent review of the current diff and meet the applicable push and PR requirements and the project's requirements for entering review. For an existing draft, confirm its current base, head, and diff match the verified change before changing its status. |
+| Report ready to merge | Refresh the PR base and head and confirm that the published diff matches the verified change for the agreed spec. Independent review of the current diff and any required PR reviews, CI, approvals, and manual acceptance checks must be complete for this revision, and any required PR update must be published. The human decides whether to merge and performs the merge. |
 
 Before each publication action and before reporting merge readiness, [confirm that the evidence still applies](#decide-which-verification-results-still-apply). If a prerequisite is incomplete or failing, or publication is unavailable, prepare the title, description, and diff for handoff and record the affected action as pending. Bring decisions that block progress to the human when they arise.
 
@@ -162,7 +162,7 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 
 ## Resume in any session
 
-Before pausing for later resumption or handing work to another session, create or update the task record with the stage, owner of the next action, agreed spec or acceptance checks, comparison base, check results, and any review decisions. Use the location agreed in the profile.
+Before pausing for later resumption or handing work off outside the current chat, create or update the task record with the stage, owner of the next action, agreed spec or acceptance checks, comparison base, check results, and any review decisions. Use the location agreed in the profile.
 
 When there are changes to carry forward, record the checkout or worktree, the branch if there is one, and an exact change reference. Use an accessible commit or a complete saved patch that includes all in-scope changes, including new files. Use only the project's approved private storage or transfer route. Verify that the recipient can open the change before marking the handoff ready. If the next session is not known yet, record how it can open the change and verify access on resumption. If the recipient cannot access it, report the blocker and keep the handoff pending.
 
