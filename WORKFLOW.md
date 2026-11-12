@@ -93,7 +93,7 @@ When the spec, base, or change moves, re-evaluate recorded results and mark any 
 
 Review every implementation diff, including small code, configuration, test, and documentation changes. For work that produces no diff, run independent review when the user requests it or the project requires it.
 
-When the first diff is ready, start one fresh reviewer subagent that did not implement the change. Give it the agreed behavior, comparison base, exact diff, project rules, and check results. Ask it to review the change without editing it. Record the reviewer reference when available and the diff it received. Keep that reviewer for follow-up rounds on the same task, as described in the [review and fix loop](#5-review-and-resolve-findings).
+When the first diff is ready, start one fresh reviewer subagent that did not implement the change. Give it the agreed behavior, comparison base, exact diff, project rules, and check results. For a required review without a diff, start a fresh reviewer when the material is ready and provide the exact material or revision to review. Ask the reviewer to review without editing. Record the reviewer reference when available and what was sent for review. Keep that reviewer for follow-up rounds on the same task, as described in the [review and fix loop](#5-review-and-resolve-findings).
 
 If the host cannot start a reviewer subagent, use an independent reviewer session through the profile's handoff route. Keep review pending until an independent reviewer completes it. Follow any separate project requirements for review on an open PR.
 
