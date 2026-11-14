@@ -11,8 +11,10 @@ If you need to move the work to a new chat, the agent saves a task record with w
 Open a chat with your coding agent in your project and send this message.
 
 ```text
-Set up Take the Baton for this project.
+Set up Take the Baton for this project using SETUP.md.
 https://github.com/AidarKhusainov/take-the-baton
+Ask me the applicable setup questions for this project. Reuse another project's answers only if I explicitly ask you to.
+Show me the exact proposed file changes and wait for my confirmation before writing them.
 ```
 
 After setup, use the prompt from your agent’s report. The examples below are for projects configured to start Take the Baton with the keyword `baton`.
