@@ -7,8 +7,9 @@
 - Private decision journal path, if used:
 - Version control and default comparison base:
 - Take the Baton source URL and revision:
-- Activation mode (default or keyword) and keyword, if used:
-- Activation scope (personal or team):
+- Activation mode (default or keyword) and keyword, if used (Not applicable for manual-only setup):
+- Activation scope (personal or team, or Not applicable for manual-only setup):
+- User-confirmed activation choices for this project (project or module path and approved mode, keyword if used, and scope):
 - Activation instruction location, profile lookup, and route status:
 - Task record directory:
 - Private storage and verified local exclusion (if inside the checkout):

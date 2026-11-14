@@ -17,7 +17,7 @@ Use this checklist throughout setup.
 | Project scope | The exact project or module path and its applicable instructions are identified. |
 | Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
 | Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
-| Activation | The selected mode and scope are recorded. The instruction location and profile lookup are verified, or the remaining step or manual route is reported. |
+| Activation | The selected mode and scope are recorded, or both are marked **Not applicable** for manual-only setup. The instruction location and profile lookup are verified, or the remaining step or manual route is reported. |
 | Tools and project rules | Each action has a recorded access status and any required fallback. Branch names and descriptions, commit subjects and bodies, PR titles and templates, and requirements before publication and merge are recorded, with any unavailable or inapplicable items identified. |
 | Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
 
@@ -26,7 +26,7 @@ Setup is complete when project scope, private storage, and the saved profile mee
 ## Inspect the project
 
 1. Identify the project or module from the current directory. Read its applicable instructions, README, build entry points, and version control metadata. Keep discovery scoped to that project.
-2. Read the existing `.take-the-baton/profile.md` or the profile path supplied by the user or configured in the activation instructions. Keep choices the user confirmed for this project and flag conflicts with current project rules or access. An existing profile or activation rule can help locate prior choices. If you cannot establish that the user confirmed a choice for this project, ask about it.
+2. Read the existing `.take-the-baton/profile.md` or the profile path supplied by the user or configured in the activation instructions. Keep choices the user confirmed for this project and flag conflicts with current project rules or access. Use the profile's confirmation entry as evidence for the approved values it lists when the project or module matches. Other evidence, such as an explicit instruction from the user for this project, can also establish confirmation. If a profile or activation rule only describes an existing choice, ask about it.
 3. Inspect connectors, CLI tools, and capabilities already exposed to the agent. Use scoped read-only checks where available. Distinguish a detected tool from verified access to the intended project. Establish write access through read-only permission information when available.
 
 Identify a route for each action in the profile template. A single tool can cover several actions. Record the actual command or tool, working directory or destination, access status, and fallback. Use `verified`, `unverified`, or `unavailable` for tool access. Use `manual` for a deliberate handoff.
@@ -55,13 +55,13 @@ Look for confirmed decisions, useful project commands, and unfinished work. Veri
 
 ## Choose how to start the workflow
 
-Before asking about activation, check which instruction locations the host can load for this project and how they can find the private profile. If only manual startup is available and the user has not requested a feasible shared team rule, go straight to the setup proposal with the [manual prompt](#manual-startup). Preserve any confirmed preferences for this project and record `manual` as the route. Use **Not applicable** for choices skipped because they cannot affect the setup.
+Before asking about activation, check which instruction locations the host can load for this project and how they can find the private profile. If only manual startup is available and the user has not requested a feasible shared team rule, skip the activation questions and show the [manual prompt](#manual-startup) with the setup proposal. In the profile, mark the active mode and scope **Not applicable**, record `manual` as the route, and give the profile path used in the prompt. Retain any previously confirmed activation preferences in the confirmation entry so they remain available if the host later supports them.
 
 Apply choices explicitly given for the current project in the current request before considering previous choices. For supported routes, ask every applicable question that still needs an answer for the current project. Ask them together when both apply and wait for the answers before preparing the proposal. Use the user's language, keep the order and option codes, and offer `эстафета` in Russian and `baton` otherwise as the default keyword for option 1B.
 
 - **New setup.** Ask about the choices still missing for this project. Preferences from memory, global instructions, and other projects' profiles or chats do not supply answers for this project on their own.
-- **Explicit reuse from another project.** When the user asks to copy choices from a named or otherwise unambiguous project, use the confirmed choices covered by that request. Identify the source and the choices carried over in the proposal. Ask about missing, unclear, or incompatible choices. Resolve storage and tool routes for the current project. Ask separately for permission if you need to read chat history.
-- **Rerun in the same project.** Reuse choices previously confirmed for this project and ask about any choices that are still unanswered or affected by a conflict with the current setup.
+- **Explicit reuse from another project.** When the user asks to copy choices from a named or otherwise unambiguous project, check its matching private profile at the configured or default path, or at a path the user supplies. Limit source discovery to the requested choices. Use the confirmed choices covered by the request and identify the source and the choices carried over in the proposal. Resolve storage and tool routes for the current project. Ask separately for permission if you still need chat history. If chat access is denied or unavailable, use the source profile or other accessible evidence and ask only about choices that still lack confirmation or are unclear or incompatible. If the source profile cannot be located and confirmation is still missing, ask for its path or the missing choices.
+- **Rerun in the same project.** Reuse choices previously confirmed for this project and ask about any choices that are still unanswered or affected by a conflict with the current setup. A matching profile confirmation entry lets a new session reuse those choices without reopening the setup chat.
 
 > **1. When should Take the Baton start in this project?**
 >
@@ -106,7 +106,7 @@ If the workflow registers tasks, record where this developer's registration reco
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
-Fill in this **before** report in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. Include the agreed activation choices in the proposed profile so the user's approval confirms them for this project. Include unresolved tool, access, or verification limitations. Keep check recommendations separate from the changes being approved.
+Fill in this **before** report in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. In the proposed profile's confirmation entry, list the project or module path and the specific mode, keyword if used, and scope that the user is being asked to confirm. Write that entry only after the user approves the displayed proposal. For copied choices, the approval confirms them for the destination project. For manual-only setup with no confirmed activation preferences, use **Not applicable** for the confirmation entry. Include unresolved tool, access, or verification limitations. Keep check recommendations separate from the changes being approved.
 
 > **Proposed setup**
 >
@@ -123,7 +123,11 @@ Apply the proposed changes after `S1` or an equivalent explicit confirmation. Fo
 
 ## Save and check
 
-After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored. If the exclusion fails, show a revised proposal for storage outside the checkout, including any changed paths or instructions, and get explicit confirmation before writing to the alternate location. Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
+After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored.
+
+If the exclusion fails, stop before writing the profile or activation instructions. Show the revised proposal for storage outside the checkout, including changed paths and instructions and any exclusion edit already made. If this setup added an exclusion entry, include its removal in the revised proposal. Wait for explicit confirmation before applying the revised changes. After confirmation, remove only the entry added by this setup and preserve unrelated entries. If you cannot identify the addition safely, leave the exclusion file as it is and report the remaining edit.
+
+Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
 Fill in this **after** report in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
 
@@ -148,16 +152,16 @@ Start each scenario with a host that supports personal and team activation, unle
 
 | Request or situation | Expected behavior |
 | --- | --- |
-| “Set up Take the Baton for Project B.” | Ask questions 1 and 2 together. Wait for the answers before showing the proposal. |
-| “Set up Project B the same way as Project A.” | Carry over keyword activation with `эстафета` and personal scope. Identify Project A and both choices in the proposal. Use Project B's own profile and task-record paths. |
+| “Set up Take the Baton for Project B.” | Ask questions 1 and 2 together and wait for the answers. Show the exact proposal. After `S1`, verify the saved profile records the approved choices for Project B. |
+| “Set up Project B the same way as Project A.” Chat access is denied or unavailable, and Project A's profile records its confirmed choices. | Carry over keyword activation with `эстафета` and personal scope from the profile without reading chats or re-asking the confirmed questions. Identify Project A and both choices in the proposal. Use Project B's own profile and task-record paths. After `S1`, record confirmation for Project B. |
 | “Set up Project B with the same activation mode and keyword as Project A.” | Carry over keyword activation with `эстафета` and ask question 2 about scope. |
 | Project B can use a team rule but cannot use Project A's personal rule. The user asks to copy Project A's setup. | Explain the scope conflict and ask how to proceed. Carry over the compatible choices covered by the request. |
 | “Set up Take the Baton for Project B. Use it by default.” | Record option 1A for Project B and ask question 2. |
-| Rerun setup for Project A with its confirmed choices and no changes needed. | Report the existing setup and leave the files as they are. |
+| Rerun setup for Project A in a new session with no access to the original chat. Its profile records its confirmed choices and no changes are needed. | Reuse the recorded choices, report the existing setup and leave the files as they are. |
 | “Switch Project A to default startup.” | Use option 1A and retain confirmed personal scope. Show the proposed changes and wait for confirmation. |
 | Rerun setup for Project B with an existing profile but no evidence that the user confirmed its choices. | Ask questions 1 and 2. Treat the profile as a description of the current setup. |
-| Only manual startup is available for Project B. | Mark inapplicable activation questions and show the manual startup prompt and any profile and storage changes in the proposal. |
-| The local exclusion fails after the user confirms a proposal with in-project storage. | Show the exact revised proposal for external storage and wait for fresh confirmation before writing to that location. |
+| Only manual startup is available for Project B. | Skip the activation questions. Show the manual startup prompt and the profile and storage changes, with mode and scope marked **Not applicable** and route set to `manual`. |
+| The local exclusion fails after the user confirms a proposal with in-project storage and the agent adds an entry. | Show the entry already added and its proposed removal along with the external storage changes. Wait for fresh confirmation, then remove only that entry and verify unrelated entries were preserved. |
 
 For every scenario that proposes a write, check that the agent shows the exact changes and waits for `S1` or an equivalent explicit confirmation of the displayed proposal. Verify that the profile, task directory, activation instructions, and any local VCS exclusion stay untouched while the proposal is pending. Test chat access separately. The agent must obtain separate permission before reading chats, including when the user asks to copy setup choices from another project.
 
