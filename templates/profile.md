@@ -79,6 +79,7 @@ Record group-specific authorization and ownership in each group record.
 - Private notes, per-source checkpoints, and enabled task observation capture scope and location:
 - Local run time and time zone, if scheduled:
 - Scheduler route, schedule reference, actual status, and last verification:
-- Profile/schedule mutation owner or scheduler reservation/idempotency route:
+- Profile and schedule mutation owner and handoff route:
+- Scheduler reservation or idempotency for duplicate creation, if supported:
 - Unresolved schedule creation or update attempt and reconciliation evidence:
 - Pause route or manual fallback:

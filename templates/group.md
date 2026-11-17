@@ -26,13 +26,13 @@ Use local IDs when no tracker task exists. Task records hold detailed implementa
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
 
-## PR mapping
+## Publication targets and PR mapping
 
-Keep one row per PR with all associated tasks. Task records link to this mapping. The owning worker integrates a candidate and the coordinator publishes it. No PR is required for a task still in investigation or planning.
+Record the remote repository and destination branch before the first push. For an existing PR, include its reference and the source repository and branch. Keep all associated tasks with the same target and update the row when a planned target becomes a PR. The owning worker integrates a candidate and the coordinator publishes it.
 
-| PR | Task IDs | Owning chat | Intended base and last verified base/head | Status and merge/deployment prerequisites | Individual verification record |
-| --- | --- | --- | --- | --- | --- |
-| | | | | | |
+| Remote repository and destination branch | PR reference, if any | Task IDs | Owning worker | Intended base and last verified base/head | Status and merge/deployment prerequisites | Individual verification record |
+| --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | |
 
 ## Launches and handoffs
 

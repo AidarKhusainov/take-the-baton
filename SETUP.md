@@ -121,7 +121,7 @@ Use [the subagent selection policy](SUBAGENTS.md). Propose `balanced` when the u
 
 Inspect current tool schemas and any read-only model catalog the runtime exposes. Record supported combinations of delegation surface, model ID, and reasoning effort with their evidence and date. Include model-specific defaults when exposed and the limits on overriding settings at launch or continuation, including any requirement for fresh context. Use the available evidence to map the policy's economical, standard, and deep-analysis options. Mark mappings that cannot be verified as `unverified`. Avoid test launches for model discovery.
 
-The approved project profile guides selection for subagents during authorized delegation without a separate confirmation for each selection where the host allows it. The profile leaves global and working-chat settings as configured. If a working-chat launch requires a user-specified model for an override, apply an override only when the user supplies that model. Handle model and effort fallback separately: preserve a supported explicit value and inherit only the unsupported dimension if its compatibility and required constraints can be established. Unknown comparative mappings do not invalidate verified supported choices. If a required inherited value cannot be verified, keep the affected assignment pending or use a separately authorized compatible route. Report a capability or constraint that the available route cannot satisfy.
+Record fallback and any unmet constraints using the [subagent capability rules](SUBAGENTS.md#establish-available-choices). The profile guides authorized subagent selection and leaves global and working-chat settings as configured.
 
 ## Offer reflection
 
@@ -137,7 +137,7 @@ For daily mode, propose the current project's task records and private task obse
 
 Include a private observation location and capture scope in the proposal if future tasks should record material for reflection even without a full task record. The [task capture step](WORKFLOW.md#capture-material-for-reflection) uses only that approved location and scope. Keep the selected mode separate from the actual schedule status.
 
-For daily setup and reruns, [reconcile existing schedules](REFLECTION.md#find-and-reconcile-schedules) before proposing creation. Include any verified legacy match and [profile settings to carry forward](REFLECTION.md#carry-forward-approved-daily-settings) in the same proposal. If the search cannot rule out a duplicate, report scheduling as pending and finish independent setup steps.
+For daily setup and reruns, use the [enablement procedure](REFLECTION.md#enable-a-daily-run-if-requested) to prepare the schedule changes for the setup proposal. When scheduling is pending, finish independent setup steps and report the limitation.
 
 Ask for explicit recurring permission before including chats in a daily schedule. Identify which project and chats it may read on future runs. Permission to recover context during setup or to read chats for a manual run covers only that occasion. Keep all excerpts, links, and notes in the agreed private location.
 
@@ -167,7 +167,7 @@ If the exclusion fails, stop before writing the profile or activation instructio
 
 Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths, routes, and approved subagent preferences against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
-For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Save and verify approved settings in the profile before switching a legacy prompt to the current-profile checks. Record the actual schedule status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When switching to manual or off mode or narrowing source access, follow the [schedule access checks](REFLECTION.md#verify-access-after-a-schedule-change). Reconcile existing schedules and unresolved create attempts, including legacy prompts. Verify that the approved controls took effect for future and in-flight runs and record any unresolved access as pending.
+Apply approved daily settings using the [enablement procedure](REFLECTION.md#enable-a-daily-run-if-requested). For `manual`, `off`, or narrowed sources, follow the [schedule access checks](REFLECTION.md#verify-access-after-a-schedule-change). Include the result in the setup report and provide a manual prompt if daily scheduling is unavailable.
 
 After saving and verifying the profile and applicable source references, save and read back the approved registry entry. Include manual installations and use the same registry across this user's projects on the host.
 

@@ -26,6 +26,8 @@ Do not force the group into a linear chain. Identify independent work and depend
 
 Assign one working chat to each independently owned task by default. Reuse an existing eligible chat when possible. Give each mutable branch, PR, and shared artifact one owner. If tasks share a PR, designate one worker to integrate the candidate. Other workers provide findings or patches. The coordinator owns publication under the [group publication rule](#publish-through-the-coordinator).
 
+Record planned publication targets in the [group record](templates/group.md#publication-targets-and-pr-mapping) as soon as they are known, before the first push. Use the remote repository and destination branch even when there is no tracker key or PR. Attach the PR reference when one exists. For a shared target, link all contributing tasks to the same entry and keep one publication owner. When the target changes, reconcile existing attempts and update its recorded owner and references before publishing.
+
 ## Start and coordinate working chats
 
 Use the profile's actual host routes to create chats, send follow-up assignments, read results, and wait for progress. A working chat is a persistent user-visible chat; reviewer subagents within a task serve the independent review stage. Keep the host's existing delegation and review stages rather than adding another review loop for every message.
@@ -116,7 +118,9 @@ Walk through these scenarios against the host routes and project rules. A docume
 | A worker resumes while its original coordinator is still active | Confirm the current task assignment and prerequisites; resume the worker without transferring coordination. |
 | The user directly resumes an old grouped task by record path or tracker key | Resolve the task and group in the current workflow before loading the old task revision. Preserve coordinator-only publication without relying on an earlier handoff message. If the known group record is unavailable, leave publication pending. |
 | Two worktrees share a profile, but one is inaccessible and pins a workflow that predates groups | Save the publication handoff in the shared task's existing status. Keep the affected publication pending despite the first worktree and profile being updated. When the old route returns, verify its publication owner check, its use of the current shared record, or its inability to publish before clearing the hold. |
-| An ordinary request asks to fix a grouped PR from another worktree | Look up ownership by task key or PR before publication. A route that checks only explicit resumption does not clear the hold. If the shared record cannot be reached, leave publication pending. |
+| An ordinary request asks to fix a grouped PR from another worktree | Check ownership by PR and its source repository and branch before publication. A route that checks only explicit resumption does not clear the hold. If the shared record cannot be reached, leave publication pending. |
+| A task from a description has a planned remote branch but no tracker key or PR | Match the remote repository and destination branch against the planned group target before the first push. The coordinator remains the publisher. |
+| A newly added task references a key that is missing from the existing shared PR entry | Resolve ownership using the PR and its source repository and branch. Link the task to that target without changing the publication owner. |
 | An ordinary PR update has no group or handoff in the applicable shared records | Proceed under the ordinary publication rules after verifying the lookup. |
 | One upstream PR merges with a changed revision | Refresh the merged state, downstream diffs and bases, and affected evidence before further publication or readiness claims. |
 | Individual checks pass but combined verification is unavailable | Keep joint acceptance pending and report the limitation separately from individual PR status. |

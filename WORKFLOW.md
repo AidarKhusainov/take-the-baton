@@ -139,7 +139,9 @@ Before each publication action and before reporting merge readiness, [confirm th
 
 ### Verify the publication owner
 
-Before each push, PR publication or update, or report of readiness, verify ownership regardless of how the work was requested. Look up the task key or PR reference in the applicable shared task and group records for the project. Use the original profile or agreed coordinator route when the current worktree's profile cannot reach those records. Apply any recorded publication handoff. If the applicable shared records cannot be checked or ownership is ambiguous, keep the affected publication pending and continue preparation. When the applicable lookup finds no group or handoff, follow the ordinary publication rules above.
+Before each push, PR publication or update, or report of readiness, verify ownership regardless of how the work was requested. Start with the actual publication target. For a push, use the remote repository identity and destination branch. For a new PR, use its proposed source repository and branch. For an existing PR, use its repository and PR reference as well as its current source repository and branch. Check each applicable target against the shared task and group records. Use task records, tracker keys, or local task IDs to confirm or clarify a match. A missing task key or PR does not skip the branch check, and a different task key does not override the owner of a shared target.
+
+Use the original profile or agreed coordinator route when the current worktree's profile cannot reach the applicable records. Apply any recorded publication handoff. If the applicable records cannot be checked or ownership is ambiguous, keep the affected publication pending and continue preparation. When the applicable lookup finds no group or handoff, follow the ordinary publication rules above.
 
 For grouped work, follow the [group publication rule](GROUPS.md#publish-through-the-coordinator). The worker hands off the exact candidate and evidence. The coordinator alone publishes and reports readiness using the current group conditions, including any unresolved startup route that could bypass the handoff.
 
