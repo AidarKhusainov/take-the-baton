@@ -151,21 +151,7 @@ For reflection notes and optional task observations, use the same private storag
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
-Fill in this **before** report in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. In the proposed profile's confirmation entry, list the project or module path and the specific mode, keyword if used, and scope that the user is being asked to confirm. Write that entry only after the user approves the displayed proposal. For copied choices, the approval confirms them for the destination project. For manual-only setup with no confirmed activation preferences, use **Not applicable** for the confirmation entry. Include unresolved tool, access, or verification limitations. Keep check recommendations separate from the changes being approved.
-
-> **Proposed setup**
->
-> - Project and scope — `<project or module and path>`
-> - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
-> - Installation registry — `<path and exact entry to add or update, or existing verified entry>`
-> - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found, or the manual startup prompt>`
-> - Subagent selection — `<priority, explicit constraints, supported settings, and fallback>`
-> - Reflection — `<mode, approved source scope and notes path; if daily, time, time zone, and proposed schedule change or limitation>`
-> - Changes — `<exact proposed file edits and any directories to create>`
-> - Tools and checks — `<main routes, required checks, and any limitations>`
->
-> - **S1. Confirm the proposal.**
-> - **S2. Change the proposal.** Tell me what to change.
+Fill in the [setup proposal form](templates/setup-report.md#proposed-setup) in the user's language. Include the proposed storage location in the same report. Show the exact file edits or link to the proposed diff. In the proposed profile's confirmation entry, list the project or module path and the specific mode, keyword if used, and scope that the user is being asked to confirm. Write that entry only after the user approves the displayed proposal. For copied choices, the approval confirms them for the destination project. For manual-only setup with no confirmed activation preferences, use **Not applicable** for the confirmation entry. Include unresolved tool, access, or verification limitations. Keep check recommendations separate from the changes being approved.
 
 Apply the proposed changes after `S1` or an equivalent explicit confirmation. For `S2`, show the revised proposal and wait for the user's confirmation before applying the changes.
 
@@ -181,21 +167,7 @@ For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.
 
 After saving and verifying the profile and applicable source references, save and read back the approved registry entry. Include manual installations and use the same registry across this user's projects on the host.
 
-Fill in this **after** report in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
-
-> **Setup result** — `<ready / ready with limitations / incomplete>`
->
-> - Project scope — `<status and project or module path>`
-> - Private storage — `<status, paths and protection>`
-> - Profile — `<status and profile path>`
-> - Installation registry — `<verified entry and registry path, or pending registration and profile path for manual lookup>`
-> - Activation — `<status, mode, scope, and instruction location or manual route>`
-> - Subagent selection — `<status, approved priority and constraints, and any unverified mapping or fallback>`
-> - Reflection — `<status, mode, and schedule reference and pause route or manual route, as applicable>`
-> - Tools and project rules — `<status, key routes and limitations>`
-> - Code checks — `<status and discovered checks>`
->
-> **Next request** — `<copyable prompt>`
+Fill in the [setup result form](templates/setup-report.md#setup-result) in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
 
 Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the displayed setup changes, including any approved reflection schedule change. Workflow actions follow the user's task request and the project's approval rules.
 

@@ -8,6 +8,8 @@ Start at the developer's request. Agree on the projects and sources to include, 
 
 Use the task records, private task observations, chats, or excerpts the developer has approved for reflection. Check which project a chat belongs to before reading its messages when the host exposes that information. If you cannot verify the chat is in scope or the host cannot read it, use task records or ask for selected excerpts. Keep source excerpts, links, and notes in the agreed private location.
 
+For manual and scheduled reflection, use the [reflection notes template](templates/reflection-notes.md) when creating notes. Continue existing notes at their configured path. If a new layout is required to continue, follow the [filled record rules](UPDATE.md#update-filled-records) and preserve the checkpoints and proposal history.
+
 ## Turn repeated friction into a proposal
 
 1. Review new material in the agreed scope. Record each observation in the private notes with a source reference, what was expected, what happened, and the consequence. Keep a checkpoint for each source and a stable episode reference so the same episode is counted once even when it appears in several sources. Save the observations before advancing the checkpoint. Never advance past unread or inaccessible material. Report a source access issue when it requires the developer's action.
