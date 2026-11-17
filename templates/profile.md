@@ -51,6 +51,17 @@ For each row, fill in the actual tool or command, the destination or working dir
 - Decisions or actions reserved for the user:
 - Where task records and review material may be stored:
 
+## Subagent selection
+
+Use SUBAGENTS.md from the Take the Baton source URL and revision recorded above; this private profile may live outside the source checkout.
+
+- Priority (balanced by default, quality, or economy) and confirmation source:
+- Explicit project constraints, fixed model or reasoning effort, and budget if set:
+- Supported delegation surfaces and model ID/reasoning effort combinations, with evidence, status, and verification date:
+- Economical, standard, and deep-analysis mappings by surface, with concrete model IDs and model-specific default efforts where verified:
+- Launch and continuation overrides, including fresh-context constraints:
+- Fallback per unsupported dimension (model or effort), retained supported choices, and any unverified or unmet required constraints:
+
 ## Task group coordination
 
 - Host capabilities and limits for persistent working chats:

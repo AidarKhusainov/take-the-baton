@@ -8,6 +8,8 @@ Use the steps that apply to the request. Implementation can stay in the current 
 
 For related tasks coordinated from one chat, use [GROUPS.md](GROUPS.md) to establish the shared outcome, dependencies, and working chats. Each task follows the applicable steps below. A task can have no PR or several PRs; preserve its group reference when handing off or resuming.
 
+Before delegating to a subagent, apply [SUBAGENTS.md](SUBAGENTS.md) to choose an available model and reasoning effort for the assignment. Use balanced priority unless the user or project has selected another policy. This applies to investigation, implementation, checks, and independent review, including subagents started by working chats.
+
 ## Assess an idea
 
 When the user asks whether an idea is worth pursuing, start with the described problem and the outcome they want.
@@ -184,4 +186,4 @@ A new session can coordinate the task and continue work that does not require an
 
 When reflection and observation capture are enabled in the profile, preserve a short factual observation at task completion or handoff if a user correction, repeated work, blocked check, or coordination problem affected the task. Record what was expected, what happened, the observable consequence, and a stable task/chat/turn or evidence reference. Put it in the existing private task record or the profile's approved observation location when no full task record is needed. If no capture scope or protected location has been approved, leave capture unconfigured rather than choosing a new storage path. Do not create a second copy of an observation already recorded by the task owner; group records can link to it.
 
-Use only the approved sources and storage. Do not read other chats or turn an agent's self-assessment into a confirmed failure. Leave interpretation, deduplication, and improvement proposals to [REFLECTION.md](REFLECTION.md). When reflection is off, this optional capture adds no requirement to create records for otherwise self-contained tasks.
+Use only the approved sources and storage. Do not read other chats or turn an agent's self-assessment into a confirmed failure. Include relevant [subagent selection and escalation evidence](SUBAGENTS.md#improve-the-policy-through-reflection) when it affected the task. Leave interpretation, deduplication, and improvement proposals to [REFLECTION.md](REFLECTION.md). When reflection is off, this optional capture adds no requirement to create records for otherwise self-contained tasks.

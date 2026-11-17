@@ -23,6 +23,8 @@ After setup, use the prompt from your agent’s report. The examples below are f
 
 Setup also offers optional daily reflection. If you accept, the agent agrees the sources, time, and private storage with you, then sets up and verifies the schedule when the host supports it. Reflection proposes improvements based on recurring problems; you approve specific instruction changes. Manual reflection and opting out are also available.
 
+Subagent model and reasoning selection uses **balanced** priority by default. Each assigning chat considers the task's difficulty, uncertainty, consequences, and available checks, then chooses supported settings within your constraints. You can choose quality or economy priority in the project profile. The policy covers subagents and preserves the settings and host rules for your working chats.
+
 To investigate a task:
 
 ```text
@@ -43,4 +45,4 @@ Baton: take on related tasks PROJ-123, PROJ-124, and PROJ-125. Create working ch
 
 You can supply task descriptions or existing PRs as well. The agent records the relationships between tasks and PRs and reports any unavailable chat, publication, or verification capabilities. To resume a group, start Take the Baton and supply the original group record path.
 
-[Setup guide](SETUP.md) · [Task workflow](WORKFLOW.md) · [Related tasks](GROUPS.md) · [Reflection](REFLECTION.md) · [MIT License](LICENSE)
+[Setup guide](SETUP.md) · [Task workflow](WORKFLOW.md) · [Related tasks](GROUPS.md) · [Subagent selection](SUBAGENTS.md) · [Reflection](REFLECTION.md) · [MIT License](LICENSE)

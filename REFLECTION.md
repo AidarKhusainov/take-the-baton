@@ -18,6 +18,8 @@ For example, if an agent runs the entire build on two tasks that only need a mod
 
 For a manual run, tell the developer whether you found a proposal and mention any unavailable sources. The developer decides which proposals to adopt. Record that decision in the private notes. Apply a change to the profile or project instructions only after the developer approves that specific change and the project rules allow it.
 
+For [subagent model selection](SUBAGENTS.md#improve-the-policy-through-reflection), compare similar assignments using their recorded settings, checks, escalations, and rework. Separate a poor selection from missing context, requirements, or tool access. Use measured resource data only when available; a single outcome or an agent's confidence does not establish comparative model quality. Apply the same evidence threshold and specific-change approval before adjusting model mappings or defaults.
+
 ## Enable a daily run if requested
 
 Set up a once-daily run only with the developer's explicit approval. Approval of the daily settings in the setup proposal is sufficient. Confirm the project, sources and their scope, starting point, private notes location, run time, and time zone. Keep chat access within the specific approved recurring scope. If a scheduler or scheduled source access is unavailable, report the limitation and give the manual route.

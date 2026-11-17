@@ -69,3 +69,11 @@ For one PR, the summary above can hold its status and evidence. For several PRs,
 ## Reflection observations, if enabled
 
 Record only task-affecting observations from approved sources: expected behavior, actual action, observable consequence, and stable evidence reference. Link an existing observation instead of duplicating the same episode across a task and group.
+
+## Subagent selections, when delegated
+
+Use a short entry per assignment or link to its existing chat entry. Record a change of settings or owner when one occurs. Distinguish requested settings from effective settings reported by the host.
+
+| Assignment and agent reference | Priority and constraints | Requested model/effort; effective settings or unknown | Selection or escalation reason | Result and verification evidence |
+| --- | --- | --- | --- | --- |
+| | | | | |

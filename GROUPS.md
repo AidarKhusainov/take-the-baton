@@ -30,6 +30,8 @@ Assign one working chat to each independently owned task by default. Reuse an ex
 
 Use the profile's actual host routes to create chats, send follow-up assignments, read results, and wait for progress. A working chat is a persistent user-visible chat; reviewer subagents within a task serve the independent review stage. Keep the host's existing delegation and review stages rather than adding another review loop for every message.
 
+Give each working chat the applicable [subagent selection policy](SUBAGENTS.md) and project profile. It chooses model and reasoning settings for its own delegated assignments, using balanced priority by default and honoring task-specific constraints. Select separately for each assignment; a demanding group does not require maximum settings for every lookup. This policy does not override the host's rules or user settings for the persistent working chats themselves.
+
 Before launching an assignment:
 
 - Confirm that the recipient can access its project, original profile, task record, and required change references. Give it the task outcome, boundaries, shared decisions, prerequisite versions, acceptance checks, workspace, publication authorization, and expected report.

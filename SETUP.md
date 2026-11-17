@@ -5,7 +5,7 @@ Use this guide in the work project where the user asked to set up Take the Baton
 ## Required setup sequence
 
 1. Identify the current project or module and inspect it using read-only actions.
-2. Ask the [applicable activation questions](#choose-how-to-start-the-workflow) and [offer reflection](#offer-reflection) for this project, then wait for the user's answers. These choices can be collected together. Use confirmed answers for this project. Reuse choices from another project only when the user explicitly asks to copy them to this project.
+2. Ask the [applicable activation questions](#choose-how-to-start-the-workflow) and [offer reflection](#offer-reflection) for this project, then wait for the user's answers. These choices can be collected together. [Configure subagent selection](#configure-subagent-selection) with balanced priority by default in the same proposal. Use confirmed answers for this project. Reuse choices from another project only when the user explicitly asks to copy them to this project.
 3. Show the exact proposed changes and wait for [explicit confirmation of that proposal](#confirm-one-proposal) before creating or editing setup files or directories. A request to set up Take the Baton, answers to setup questions, and permission to read chats each serve a different purpose. File changes require confirmation after the proposal is shown.
 
 ## Setup checklist
@@ -18,11 +18,12 @@ Use this checklist throughout setup.
 | Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
 | Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
 | Activation | The selected mode and scope are recorded, or both are marked **Not applicable** for manual-only setup. The instruction location and profile lookup are verified, or the remaining step or manual route is reported. |
+| Subagent selection | The priority, constraints, supported settings and evidence, and fallback are recorded in the profile. |
 | Reflection | The approved mode and scope are recorded. Any daily schedule or requested pause is verified, or the manual route and remaining limitation are reported. |
 | Tools and project rules | Each action has a recorded access status and any required fallback. Branch names and descriptions, commit subjects and bodies, PR titles and templates, and requirements before publication and merge are recorded, with any unavailable or inapplicable items identified. |
 | Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
 
-Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding activation, reflection, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
+Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding activation, subagent selection, reflection, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
 
 ## Inspect the project
 
@@ -109,6 +110,14 @@ Fill in the source URL and revision and the paths needed for the request.
 
 > Use Take the Baton from `<source URL and revision>`. Resume coordination from `<original group record path>` and reuse its original profiles and existing working chats.
 
+## Configure subagent selection
+
+Use [the subagent selection policy](SUBAGENTS.md). Propose `balanced` when the user has no explicit project preference. In the same setup proposal, offer `quality` and `economy` as optional changes. Use the existing proposal confirmation without an extra question about priority. On rerun, keep confirmed project preferences, including any fixed model, reasoning effort, or budget, and honor any explicit new choices for this project. Surface a conflict if the current host cannot honor a confirmed constraint.
+
+Inspect current tool schemas and any read-only model catalog the runtime exposes. Record supported combinations of delegation surface, model ID, and reasoning effort with their evidence and date. Include model-specific defaults when exposed and the limits on overriding settings at launch or continuation, including any requirement for fresh context. Use the available evidence to map the policy's economical, standard, and deep-analysis options. Mark mappings that cannot be verified as `unverified`. Avoid test launches for model discovery.
+
+The approved project profile guides selection for subagents during authorized delegation without a separate confirmation for each selection where the host allows it. The profile leaves global and working-chat settings as configured. If a working-chat launch requires a user-specified model for an override, apply an override only when the user supplies that model. Handle model and effort fallback separately: preserve a supported explicit value and inherit only the unsupported dimension if its compatibility and required constraints can be established. Unknown comparative mappings do not invalidate verified supported choices. If a required inherited value cannot be verified, keep the affected assignment pending or use a separately authorized compatible route. Report a capability or constraint that the available route cannot satisfy.
+
 ## Offer reflection
 
 After resolving activation, including manual-only startup, offer reflection in the user's language. Reuse the choice already confirmed for this project on a rerun unless the user requests a change or a conflict needs a decision.
@@ -142,6 +151,7 @@ Fill in this **before** report in the user's language. Include the proposed stor
 > - Project and scope — `<project or module and path>`
 > - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
 > - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found, or the manual startup prompt>`
+> - Subagent selection — `<priority, explicit constraints, supported settings, and fallback>`
 > - Reflection — `<mode, approved source scope and notes path; if daily, time, time zone, and proposed schedule change or limitation>`
 > - Changes — `<exact proposed file edits and any directories to create>`
 > - Tools and checks — `<main routes, required checks, and any limitations>`
@@ -157,7 +167,7 @@ After confirmation, apply any agreed local exclusion and verify it before writin
 
 If the exclusion fails, stop before writing the profile or activation instructions. Show the revised proposal for storage outside the checkout, including changed paths and instructions and any exclusion edit already made. If this setup added an exclusion entry, include its removal in the revised proposal. Wait for explicit confirmation before applying the revised changes. After confirmation, remove only the entry added by this setup and preserve unrelated entries. If you cannot identify the addition safely, leave the exclusion file as it is and report the remaining edit.
 
-Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
+Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths, routes, and approved subagent preferences against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
 For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Record the approved configuration and actual status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When changing to manual or off mode, first save the approved mode and scope so scheduled runs can observe the change. Reconcile existing schedules and unresolved create attempts, and pause the matching schedule as included in the proposal. Keep schedule shutdown pending until its paused state or absence is confirmed; a failed pause does not establish that the job stopped. Report any remaining active or unknown job and required user action.
 
@@ -169,6 +179,7 @@ Fill in this **after** report in the user's language. Use one line per checklist
 > - Private storage — `<status, paths and protection>`
 > - Profile — `<status and profile path>`
 > - Activation — `<status, mode, scope, and instruction location or manual route>`
+> - Subagent selection — `<status, approved priority and constraints, and any unverified mapping or fallback>`
 > - Reflection — `<status, mode, and schedule reference and pause route or manual route, as applicable>`
 > - Tools and project rules — `<status, key routes and limitations>`
 > - Code checks — `<status and discovered checks>`
@@ -177,7 +188,7 @@ Fill in this **after** report in the user's language. Use one line per checklist
 
 Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the displayed setup changes, including any approved reflection schedule change. Workflow actions follow the user's task request and the project's approval rules.
 
-On rerun, compare the existing profile, storage protection, activation instructions, reflection configuration and schedule, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
+On rerun, compare the existing profile, storage protection, activation instructions, subagent settings and available capabilities, reflection configuration and schedule, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 
 ## Setup verification scenarios
 
@@ -200,6 +211,9 @@ Start each scenario with a host that supports personal and team activation, unle
 | R1 was confirmed and schedule creation returned an ambiguous result. | Reconcile against the scheduler and saved attempt. If unresolved, report the status as pending and avoid submitting another create. A rerun reuses a single verified matching schedule. |
 | The user changes from daily to R2 or R3, including after an unresolved create or failed pause. | Save the confirmed mode, reconcile the schedule, and verify its pause or absence. Report shutdown pending while its state is unknown; existing runs check the current mode before reading sources. |
 | Group coordination is supported but workspace isolation is unavailable. | Record chat routes and serialized mutation fallback. Do not launch chats or create workspaces as a setup check. |
+| New project setup has no subagent preference. | Propose `balanced` without another question. Offer `quality` and `economy` in the same proposal and save the approved choice after confirmation. |
+| A rerun finds a confirmed fixed model or effort, or the user gives an explicit new choice for this project. | Preserve the confirmed choices and apply only the requested change. Flag unsupported constraints and keep the recorded choices until the user approves a change. |
+| The delegation surface exposes partial overrides or cannot expose a current model catalog. | Mark unverifiable mappings `unverified`, retain supported explicit model or effort choices, and identify a compatible fallback for each unsupported dimension. Keep unmet required constraints pending. Skip discovery launches. |
 
 In each new-project scenario, also offer reflection if its mode has not been confirmed. On reruns, reuse the confirmed reflection choice and reconcile an existing schedule rather than creating another.
 
