@@ -13,6 +13,8 @@
 
 Update this summary when the revision, stage, or next action changes. Keep supporting evidence in the sections below.
 
+When publication transfers to a group coordinator, record the group and coordinator references, effective transfer, and confirmation in PR reference and publication status. State explicitly that any earlier worker permission for this task is superseded. Keep the existing status field readable by workflows that predate group records.
+
 ## Task and handoff
 
 - Task title:
@@ -26,6 +28,9 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 - Assigned independent reviewer session reference:
 - Session reassignments and reasons, if any:
 - Profile reference (absolute path or `record-relative: <path>` from this record's directory):
+- Take the Baton source URL and exact workflow revision used for this task:
+- Group record reference and task ID within it, if grouped:
+- Prerequisite output or contract versions and mutation ownership, if grouped:
 
 ## Agreed behavior
 
@@ -55,3 +60,23 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 | Finding and evidence | Disposition and reason | Fix and recheck |
 | --- | --- | --- |
 | | | |
+
+## Multiple or shared PRs
+
+For one PR, the summary above can hold its status and evidence. For several PRs, record each one's base/head, publication status, check and review evidence, and next action separately. For a grouped PR, link to the owning entry and verification evidence in the group record. The group coordinator owns publication, including for a shared PR.
+
+| PR or planned change | Owner or group entry | Verified base/head | Check and review evidence | Status and next action |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+## Reflection observations, if enabled
+
+Record only task-affecting observations from approved sources: expected behavior, actual action, observable consequence, and stable evidence reference. Link an existing observation instead of duplicating the same episode across a task and group.
+
+## Subagent selections, when delegated
+
+Use a short entry per assignment or link to its existing chat entry. Record a change of settings or owner when one occurs. Distinguish requested settings from effective settings reported by the host.
+
+| Assignment and agent reference | Priority and constraints | Requested model/effort; effective settings or unknown | Selection or escalation reason | Result and verification evidence |
+| --- | --- | --- | --- | --- |
+| | | | | |
