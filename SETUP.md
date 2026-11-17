@@ -5,7 +5,7 @@ Use this guide in the work project where the user asked to set up Take the Baton
 ## Required setup sequence
 
 1. Identify the current project or module and inspect it using read-only actions.
-2. Ask the [applicable setup questions](#choose-how-to-start-the-workflow) for this project and wait for the user's answers. Use confirmed answers for this project. Reuse choices from another project only when the user explicitly asks to copy them to this project.
+2. Ask the [applicable activation questions](#choose-how-to-start-the-workflow) and [offer reflection](#offer-reflection) for this project, then wait for the user's answers. These choices can be collected together. Use confirmed answers for this project. Reuse choices from another project only when the user explicitly asks to copy them to this project.
 3. Show the exact proposed changes and wait for [explicit confirmation of that proposal](#confirm-one-proposal) before creating or editing setup files or directories. A request to set up Take the Baton, answers to setup questions, and permission to read chats each serve a different purpose. File changes require confirmation after the proposal is shown.
 
 ## Setup checklist
@@ -18,10 +18,11 @@ Use this checklist throughout setup.
 | Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
 | Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
 | Activation | The selected mode and scope are recorded, or both are marked **Not applicable** for manual-only setup. The instruction location and profile lookup are verified, or the remaining step or manual route is reported. |
+| Reflection | The approved mode and scope are recorded. Any daily schedule or requested pause is verified, or the manual route and remaining limitation are reported. |
 | Tools and project rules | Each action has a recorded access status and any required fallback. Branch names and descriptions, commit subjects and bodies, PR titles and templates, and requirements before publication and merge are recorded, with any unavailable or inapplicable items identified. |
 | Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
 
-Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding activation, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
+Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding activation, reflection, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
 
 ## Inspect the project
 
@@ -30,6 +31,8 @@ Setup is complete when project scope, private storage, and the saved profile mee
 3. Inspect connectors, CLI tools, and capabilities already exposed to the agent. Use scoped read-only checks where available. Distinguish a detected tool from verified access to the intended project. Establish write access through read-only permission information when available.
 
 Identify a route for each action in the profile template. A single tool can cover several actions. Record the actual command or tool, working directory or destination, access status, and fallback. Use `verified`, `unverified`, or `unavailable` for tool access. Use `manual` for a deliberate handoff.
+
+For [task groups](GROUPS.md), inspect host support for persistent working chats, follow-up messages, result reads and waits, launch reconciliation, and workspace isolation for the project's VCS. Record the routes and limitations in the profile without starting chats or creating workspaces during setup. Keep any group records in agreed private storage accessible to the coordinator and authorized workers; verify protection for these paths before use. A group request supplies its own task scope and authorizations.
 
 Reuse tools that fit the project rules. Where a service is unfamiliar or unavailable, propose a manual handoff or describe the adapter that would be needed. Direct required sign-in to the service's normal interface and keep credentials out of the profile.
 
@@ -98,11 +101,37 @@ Fill in the source URL and revision and the paths needed for the request.
 
 > Use Take the Baton for this project. Read the workflow from `<source URL and revision>`. Resume `<task key>` using the original profile at `<original profile path>`.
 
+**Coordinate related tasks**
+
+> Use Take the Baton for this project. Read WORKFLOW.md and GROUPS.md from `<source URL and revision>` and the profile at `<profile path>`. Coordinate `<task keys or descriptions>` from this chat. Create working chats and send them assignments. Work toward `<requested outcome>` and bring shared decisions here.
+
+**Resume a group**
+
+> Use Take the Baton from `<source URL and revision>`. Resume coordination from `<original group record path>` and reuse its original profiles and existing working chats.
+
+## Offer reflection
+
+After resolving activation, including manual-only startup, offer reflection in the user's language. Reuse the choice already confirmed for this project on a rerun unless the user requests a change or a conflict needs a decision.
+
+> **R1. Daily.** Review new material once a day and surface a proposal when evidence supports one.
+>
+> **R2. Manual.** Run reflection when I ask.
+>
+> **R3. Off.** Skip reflection.
+
+For daily mode, propose the current project's task records and private task observations, where configured, as sources, starting with new material after setup. Show the project scope, sources, starting point, private notes path, run time, and time zone. Check scheduler availability and access from scheduled runs before proposing a schedule. If scheduled runs cannot access the approved sources or the host lacks a scheduler, show the manual route and explain the limitation. For manual mode, agree on the scope, sources, period, and notes path at each run unless already approved for that run.
+
+Include a private observation location and capture scope in the proposal if future tasks should record material for reflection even without a full task record. The [task capture step](WORKFLOW.md#capture-material-for-reflection) uses only that approved location and scope. Keep the selected mode separate from the actual schedule status.
+
+Ask for explicit recurring permission before including chats in a daily schedule. Identify which project and chats it may read on future runs. Permission to recover context during setup or to read chats for a manual run covers only that occasion. Keep all excerpts, links, and notes in the agreed private location.
+
 ## Confirm one proposal
 
 Keep the profile and task records private. Use `.take-the-baton/profile.md` and `.take-the-baton/tasks/` in the selected project only when the directory is untracked and a local VCS exclusion can be verified. Check for any tracked or staged files under that path. For Git, resolve the local exclude file with `git rev-parse --git-path info/exclude` and match the actual directory relative to the repository root, including any module prefix. A tracked or staged path, or an exclusion that cannot be verified, calls for an agreed private location outside the checkout for both the profile and task records. Preserve existing tracked or staged files.
 
 If the workflow registers tasks, record where this developer's registration records live for the project and tracker destination. One worktree can use its task directory. When setting up another worktree, reuse the original private registration records or the agreed coordinator that can reconcile prior attempts. Record how a new session can look up an original task record by tracker key or URL. Propose a separate private location only if it is needed and preserves access to earlier attempts. If the route cannot be verified, report registration as pending.
+
+For reflection notes and optional task observations, use the same private storage rules as for task records. Include any private reflection paths and scheduler creation, update, or pause in the exact setup proposal. Confirm the reflection settings and scheduler changes with the rest of the proposal.
 
 If using a private decision journal, keep it in the agreed private location. For an in-project journal, verify that its path is untracked, unstaged, and covered by the local exclusion before writing. If that cannot be verified, agree on a private path outside the checkout.
 
@@ -113,6 +142,7 @@ Fill in this **before** report in the user's language. Include the proposed stor
 > - Project and scope — `<project or module and path>`
 > - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
 > - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found, or the manual startup prompt>`
+> - Reflection — `<mode, approved source scope and notes path; if daily, time, time zone, and proposed schedule change or limitation>`
 > - Changes — `<exact proposed file edits and any directories to create>`
 > - Tools and checks — `<main routes, required checks, and any limitations>`
 >
@@ -129,6 +159,8 @@ If the exclusion fails, stop before writing the profile or activation instructio
 
 Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths and routes against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
+For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Record the approved configuration and actual status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When changing to manual or off mode, first save the approved mode and scope so scheduled runs can observe the change. Reconcile existing schedules and unresolved create attempts, and pause the matching schedule as included in the proposal. Keep schedule shutdown pending until its paused state or absence is confirmed; a failed pause does not establish that the job stopped. Report any remaining active or unknown job and required user action.
+
 Fill in this **after** report in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
 
 > **Setup result** — `<ready / ready with limitations / incomplete>`
@@ -137,14 +169,15 @@ Fill in this **after** report in the user's language. Use one line per checklist
 > - Private storage — `<status, paths and protection>`
 > - Profile — `<status and profile path>`
 > - Activation — `<status, mode, scope, and instruction location or manual route>`
+> - Reflection — `<status, mode, and schedule reference and pause route or manual route, as applicable>`
 > - Tools and project rules — `<status, key routes and limitations>`
 > - Code checks — `<status and discovered checks>`
 >
 > **Next request** — `<copyable prompt>`
 
-Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the agreed profile, local exclusion, and activation instruction changes. Workflow actions follow the user's task request and the project's approval rules.
+Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the displayed setup changes, including any approved reflection schedule change. Workflow actions follow the user's task request and the project's approval rules.
 
-On rerun, compare the existing profile, storage protection, activation instructions, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
+On rerun, compare the existing profile, storage protection, activation instructions, reflection configuration and schedule, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 
 ## Setup verification scenarios
 
@@ -162,7 +195,14 @@ Start each scenario with a host that supports personal and team activation, unle
 | Rerun setup for Project B with an existing profile but no evidence that the user confirmed its choices. | Ask questions 1 and 2. Treat the profile as a description of the current setup. |
 | Only manual startup is available for Project B. | Skip the activation questions. Show the manual startup prompt and the profile and storage changes, with mode and scope marked **Not applicable** and route set to `manual`. |
 | The local exclusion fails after the user confirms a proposal with in-project storage and the agent adds an entry. | Show the entry already added and its proposed removal along with the external storage changes. Wait for fresh confirmation, then remove only that entry and verify unrelated entries were preserved. |
+| Manual-only startup is available and the user chooses R1, but the host has no scheduler. | Offer reflection, report daily mode with a manual fallback, and show how to run it on demand. |
+| The user chooses R1 and granted only one-time setup chat access. | The approved schedule uses the project's task records. Include recurring chat access only with separate permission for that scope. |
+| R1 was confirmed and schedule creation returned an ambiguous result. | Reconcile against the scheduler and saved attempt. If unresolved, report the status as pending and avoid submitting another create. A rerun reuses a single verified matching schedule. |
+| The user changes from daily to R2 or R3, including after an unresolved create or failed pause. | Save the confirmed mode, reconcile the schedule, and verify its pause or absence. Report shutdown pending while its state is unknown; existing runs check the current mode before reading sources. |
+| Group coordination is supported but workspace isolation is unavailable. | Record chat routes and serialized mutation fallback. Do not launch chats or create workspaces as a setup check. |
+
+In each new-project scenario, also offer reflection if its mode has not been confirmed. On reruns, reuse the confirmed reflection choice and reconcile an existing schedule rather than creating another.
 
 For every scenario that proposes a write, check that the agent shows the exact changes and waits for `S1` or an equivalent explicit confirmation of the displayed proposal. Verify that the profile, task directory, activation instructions, and any local VCS exclusion stay untouched while the proposal is pending. Test chat access separately. The agent must obtain separate permission before reading chats, including when the user asks to copy setup choices from another project.
 
-Optional: [reflect on recurring problems in how you work with agents](REFLECTION.md).
+For the run instructions, see [Reflect on work with agents](REFLECTION.md).

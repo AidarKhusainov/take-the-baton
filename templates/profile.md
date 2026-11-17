@@ -12,6 +12,7 @@
 - User-confirmed activation choices for this project (project or module path and approved mode, keyword if used, and scope):
 - Activation instruction location, profile lookup, and route status:
 - Task record directory:
+- Group record directory and shared private access route, if used:
 - Private storage and verified local exclusion (if inside the checkout):
 
 ## Tool routes
@@ -27,6 +28,10 @@ For each row, fill in the actual tool or command, the destination or working dir
 | Run final local checks | | | |
 | Start or resume the assigned developer session | | | |
 | Start or resume the assigned independent reviewer session | | | |
+| Create working chats for a task group, if authorized | | | |
+| Send assignments, read results, and wait for working chats | | | |
+| Isolate workspaces or serialize mutations for related tasks | | | |
+| Find, create, inspect, or pause the reflection schedule, if authorized | | | |
 | Read remote review feedback | | | |
 | Read remote CI | | | |
 | Create a commit, if requested | | | |
@@ -45,3 +50,23 @@ For each row, fill in the actual tool or command, the destination or working dir
 - Required reviews, CI, approvals, and manual checks before merge, including which checks run in the open PR and the revision or tree each CI check must cover:
 - Decisions or actions reserved for the user:
 - Where task records and review material may be stored:
+
+## Task group coordination
+
+- Host capabilities and limits for persistent working chats:
+- Project/host lookup and working-chat launch reconciliation route:
+- Workspace isolation or single-writer handoff route for this VCS:
+- Shared contract sources and integration verification environment:
+
+Record group-specific authorization and ownership in each group record.
+
+## Reflection
+
+- Mode (daily, manual, or off) and confirmation source:
+- Approved project scope, sources, start boundary, and any recurring chat-reading permission:
+- Private notes, per-source checkpoints, and enabled task observation capture scope and location:
+- Local run time and time zone, if scheduled:
+- Scheduler route, schedule reference, actual status, and last verification:
+- Profile/schedule mutation owner or scheduler reservation/idempotency route:
+- Unresolved schedule creation or update attempt and reconciliation evidence:
+- Pause route or manual fallback:

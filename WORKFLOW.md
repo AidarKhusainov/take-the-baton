@@ -6,6 +6,8 @@ Read the work project's instructions. For explicit resumption, resolve the origi
 
 Use the steps that apply to the request. Implementation can stay in the current session. Agree on material decisions before implementing the affected change and save a task record when work needs to continue in another session. Send every implementation diff for [independent review](#4-hand-off-the-diff-for-review). The user's instructions and project rules apply to every task.
 
+For related tasks coordinated from one chat, use [GROUPS.md](GROUPS.md) to establish the shared outcome, dependencies, and working chats. Each task follows the applicable steps below. A task can have no PR or several PRs; preserve its group reference when handing off or resuming.
+
 ## Assess an idea
 
 When the user asks whether an idea is worth pursuing, start with the described problem and the outcome they want.
@@ -25,6 +27,8 @@ For explicit resumption, follow [the resumption steps](#resume-in-any-session). 
 - **Implement from a description.** Continue to [agree on behavior](#2-agree-on-behavior). Register the task first if the user requests registration or the project requires it. While registration is pending, continue only with work that project rules allow without a task key.
 
 Create a [task record](templates/task.md) when registering a task, before handing off implementation or review outside the current chat, before pausing for later resumption, or when the user or project requires one. Otherwise, keep decisions, change references, and results in the current chat, including review by a subagent started in that chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
+
+For a grouped task, also link the task record to its [group record](templates/group.md) and check its prerequisites and assigned owner before starting work. Reuse the group's single owner for any shared PR or artifact.
 
 ### Find a task record
 
@@ -131,6 +135,8 @@ Use the requested outcome to decide how far to proceed. One explicit request can
 
 Before each publication action and before reporting merge readiness, [confirm that the evidence still applies](#decide-which-verification-results-still-apply). If a prerequisite is incomplete or failing, or publication is unavailable, prepare the title, description, and diff for handoff and record the affected action as pending. Bring decisions that block progress to the human when they arise.
 
+For a grouped task, also [refresh the current assignment, shared decisions, and prerequisite revisions](GROUPS.md#propagate-changes-and-review-findings). An outdated launch message or local task record cannot clear a pending group requirement.
+
 ### Publish and update the PR
 
 Follow the profile and project rules for commits, pushes, and linking or closing related tasks. Use the [change history templates](#change-history-templates) for commit messages and PRs. If a hook fails, inspect the output, fix the cause within scope, and rerun the affected check. Before retrying an authorized push, repeat the comparison and recheck any evidence affected by the fix. If the failure remains or requires a decision, report it and keep the action pending.
@@ -164,6 +170,8 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 
 Before pausing for later resumption or handing work off outside the current chat, create or update the task record with the stage, owner of the next action, agreed spec or acceptance checks, comparison base, check results, and any review decisions. Use the location agreed in the profile.
 
+When the record belongs to a group, read the original group record and follow the applicable [worker or coordinator resumption steps](GROUPS.md#resume-coordination). A worker refreshes its own assignment and prerequisites without taking over the coordinator role; do not start a competing coordinator or duplicate worker.
+
 When there are changes to carry forward, record the checkout or worktree, the branch if there is one, and an exact change reference. Use an accessible commit or a complete saved patch that includes all in-scope changes, including new files. Use only the project's approved private storage or transfer route. Verify that the recipient can open the change before marking the handoff ready. If the next session is not known yet, record how it can open the change and verify access on resumption. If the recipient cannot access it, report the blocker and keep the handoff pending.
 
 To resume, locate the original task record. For a tracker key or URL, use the [task record lookup](#find-a-task-record) with the supplied original profile or the profile available in the current worktree. If that lookup cannot reach the original record, ask for the original record path or the original profile path and keep resumption pending. A new request to work on an existing tracker task can proceed under project rules when no prior record is found. Read the record's profile reference before using any profile found through activation. Resolve an absolute path as written and a path marked `record-relative:` from the directory containing the record. For a legacy relative path, use the original checkout only when its location and the intended profile can be confirmed. If the record's profile cannot be resolved or conflicts with a supplied profile, keep resumption pending until the user confirms the original profile path. Verify that the profile belongs to the intended project and scope before proceeding.
@@ -171,3 +179,9 @@ To resume, locate the original task record. For a tracker key or URL, use the [t
 Once the record and profile are available, refresh relevant task or PR updates, including the current PR base and head if there is a PR. If requirements changed, resolve any material differences with the human before continuing. [Confirm that the recorded evidence still applies](#decide-which-verification-results-still-apply). The developer reruns affected checks and returns the updated diff to the assigned reviewer when review needs to be repeated.
 
 A new session can coordinate the task and continue work that does not require an assigned session. Use the recorded references or the profile's manual handoff route to reach the assigned developer and reviewer. If an assigned session cannot be resumed, reassign the role when the project rules and the user's authorization allow it. Record the previous and new assignments and the reason, preserving the prior decisions and findings. Give the replacement the agreed spec, exact change, check results, and open findings. A replacement reviewer independently reviews the current diff before that review is marked complete. If reassignment needs a decision or no eligible replacement is available, explain the blocker and keep the step pending.
+
+## Capture material for reflection
+
+When reflection and observation capture are enabled in the profile, preserve a short factual observation at task completion or handoff if a user correction, repeated work, blocked check, or coordination problem affected the task. Record what was expected, what happened, the observable consequence, and a stable task/chat/turn or evidence reference. Put it in the existing private task record or the profile's approved observation location when no full task record is needed. If no capture scope or protected location has been approved, leave capture unconfigured rather than choosing a new storage path. Do not create a second copy of an observation already recorded by the task owner; group records can link to it.
+
+Use only the approved sources and storage. Do not read other chats or turn an agent's self-assessment into a confirmed failure. Leave interpretation, deduplication, and improvement proposals to [REFLECTION.md](REFLECTION.md). When reflection is off, this optional capture adds no requirement to create records for otherwise self-contained tasks.

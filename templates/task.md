@@ -26,6 +26,8 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 - Assigned independent reviewer session reference:
 - Session reassignments and reasons, if any:
 - Profile reference (absolute path or `record-relative: <path>` from this record's directory):
+- Group record reference and task ID within it, if grouped:
+- Prerequisite output or contract versions and mutation ownership, if grouped:
 
 ## Agreed behavior
 
@@ -55,3 +57,15 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 | Finding and evidence | Disposition and reason | Fix and recheck |
 | --- | --- | --- |
 | | | |
+
+## Multiple or shared PRs
+
+For one PR, the summary above can hold its status and evidence. For several PRs, record each one's base/head, publication status, check and review evidence, and next action separately. For a shared PR, link to the owning entry in the group record and its verification record; do not assign another publisher.
+
+| PR or planned change | Owner or group entry | Verified base/head | Check and review evidence | Status and next action |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+## Reflection observations, if enabled
+
+Record only task-affecting observations from approved sources: expected behavior, actual action, observable consequence, and stable evidence reference. Link an existing observation instead of duplicating the same episode across a task and group.
