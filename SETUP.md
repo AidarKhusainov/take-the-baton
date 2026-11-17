@@ -84,7 +84,7 @@ Treat the answers as preferences for the proposal. Confirm any file changes afte
 
 Find an instruction location that the host already loads for the selected project. Scope the rule to that project or module, and identify the profile and workflow source. Follow existing shared project rules and surface any conflict with the requested mode or scope. In default mode, start the workflow for development task requests. In keyword mode, match the chosen keyword at the start of the user's own message, ignoring case and allowing whitespace or punctuation after the keyword. Either mode can also start when the user explicitly asks to use Take the Baton.
 
-For explicit resumption, use the workflow revision in the original task or group record when present. For a request to update the installation, follow [UPDATE.md](UPDATE.md) from the requested source before starting any task workflow.
+For explicit task resumption, the startup rule must start with the [group check in the current installed workflow](WORKFLOW.md#check-group-membership-before-resuming). Resolve the original task record first and apply any group publication rules before loading its recorded task revision. For group resumption, use the group record and its recorded workflow revision. For a request to update the installation, follow [UPDATE.md](UPDATE.md) from the requested source before starting any task workflow.
 
 - **Personal setup.** Propose a rule in the user's existing personal instructions, scoped to the project. Point it to the agreed profile path and use the source URL and revision stored in the profile.
 - **Team setup.** Show the proposed change to the shared project instructions. Give the team a common way to find each developer's private profile, such as the same project-relative ignored path or a personal pointer for external storage. Keep personal paths and private profile contents in personal storage. Apply the shared instruction edit only if the user approves that exact edit and project rules allow it.
@@ -99,11 +99,11 @@ Fill in the source URL and revision and the paths needed for the request.
 
 **Resume from a record**
 
-> Resume Take the Baton from `<original task record path>`. Use the workflow source and revision recorded for the task, or `<original source URL and revision>` if the record has no source reference.
+> Resume Take the Baton from `<original task record path>`. Read the group check in WORKFLOW.md from `<current installed source URL and revision>` before loading the recorded task revision. Apply the group's publication rules if the task belongs to a group. If the task has no recorded source, use `<original source URL and revision>` for the remaining task steps.
 
 **Resume by task key**
 
-> Use Take the Baton for this project. Read the workflow from `<source URL and revision>`. Resume `<task key>` using the original profile at `<original profile path>`.
+> Resume Take the Baton for `<task key>` using the original profile at `<original profile path>`. Follow the record lookup and group check in WORKFLOW.md from `<current installed source URL and revision>` before switching to the original task's workflow revision.
 
 **Coordinate related tasks**
 
@@ -137,6 +137,8 @@ For daily mode, propose the current project's task records and private task obse
 
 Include a private observation location and capture scope in the proposal if future tasks should record material for reflection even without a full task record. The [task capture step](WORKFLOW.md#capture-material-for-reflection) uses only that approved location and scope. Keep the selected mode separate from the actual schedule status.
 
+For daily setup and reruns, [reconcile existing schedules](REFLECTION.md#find-and-reconcile-schedules) before proposing creation. Include any verified legacy match and [profile settings to carry forward](REFLECTION.md#carry-forward-approved-daily-settings) in the same proposal. If the search cannot rule out a duplicate, report scheduling as pending and finish independent setup steps.
+
 Ask for explicit recurring permission before including chats in a daily schedule. Identify which project and chats it may read on future runs. Permission to recover context during setup or to read chats for a manual run covers only that occasion. Keep all excerpts, links, and notes in the agreed private location.
 
 ## Confirm one proposal
@@ -163,7 +165,7 @@ If the exclusion fails, stop before writing the profile or activation instructio
 
 Preserve existing content and record the source URL and revision or tag when available. Read the profile back and check the paths, routes, and approved subagent preferences against the project. Apply the agreed activation instruction edit, if any, and preserve the existing instructions. Use read-only checks to verify the instruction location and profile lookup. If startup behavior can only be confirmed in a new session and has yet to be checked, report that verification as pending.
 
-For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Record the approved configuration and actual status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When switching to manual or off mode or narrowing source access, follow the [schedule access checks](REFLECTION.md#verify-access-after-a-schedule-change). Reconcile existing schedules and unresolved create attempts, including legacy prompts. Verify that the approved controls took effect for future and in-flight runs and record any unresolved access as pending.
+For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Save and verify approved settings in the profile before switching a legacy prompt to the current-profile checks. Record the actual schedule status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When switching to manual or off mode or narrowing source access, follow the [schedule access checks](REFLECTION.md#verify-access-after-a-schedule-change). Reconcile existing schedules and unresolved create attempts, including legacy prompts. Verify that the approved controls took effect for future and in-flight runs and record any unresolved access as pending.
 
 After saving and verifying the profile and applicable source references, save and read back the approved registry entry. Include manual installations and use the same registry across this user's projects on the host.
 
@@ -192,6 +194,7 @@ Start each scenario with a host that supports personal and team activation, unle
 | Manual-only startup is available and the user chooses R1, but the host has no scheduler. | Offer reflection, report daily mode with a manual fallback, and show how to run it on demand. |
 | The user chooses R1 and granted only one-time setup chat access. | The approved schedule uses the project's task records. Include recurring chat access only with separate permission for that scope. |
 | R1 was confirmed and schedule creation returned an ambiguous result. | Reconcile against the scheduler and saved attempt. If unresolved, report the status as pending and avoid submitting another create. A rerun reuses a single verified matching schedule. |
+| A daily setup rerun finds a legacy job with only project or state paths in its prompt. | Use the scoped lookup before creating. Reuse the verified match and save approved settings in the profile before switching the prompt. When the search cannot rule out a duplicate, keep creation pending. |
 | The user changes from daily to R2 or R3, including after an unresolved create or failed pause. | Save the confirmed mode, reconcile the schedule, and verify its pause or absence. Report shutdown pending while its state is unknown; existing runs check the current mode before reading sources. |
 | Group coordination is supported but workspace isolation is unavailable. | Record chat routes and serialized mutation fallback. Do not launch chats or create workspaces as a setup check. |
 | Setup is rerun for a verified manual installation that has no registry entry. | Show the entry in the setup proposal and record it after verification. Preserve the manual startup choice. |
