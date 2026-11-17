@@ -159,6 +159,8 @@ Apply the proposed changes after `S1` or an equivalent explicit confirmation. Fo
 
 ## Save and check
 
+Use the [shared procedure for changing reflection settings](REFLECTION.md#change-reflection-settings) before writing the profile or schedule when setup changes reflection or rewrites its settings. Preserve the current settings when applying unrelated profile edits.
+
 After confirmation, apply any agreed local exclusion and verify it before writing private files. In Git, check both tracking status and whether the intended profile and task paths are ignored.
 
 If the exclusion fails, stop before writing the profile or activation instructions. Show the revised proposal for storage outside the checkout, including changed paths and instructions and any exclusion edit already made. If this setup added an exclusion entry, include its removal in the revised proposal. Wait for explicit confirmation before applying the revised changes. After confirmation, remove only the entry added by this setup and preserve unrelated entries. If you cannot identify the addition safely, leave the exclusion file as it is and report the remaining edit.

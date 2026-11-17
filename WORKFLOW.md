@@ -137,7 +137,11 @@ Use the requested outcome to decide how far to proceed. One explicit request can
 
 Before each publication action and before reporting merge readiness, [confirm that the evidence still applies](#decide-which-verification-results-still-apply). If a prerequisite is incomplete or failing, or publication is unavailable, prepare the title, description, and diff for handoff and record the affected action as pending. Bring decisions that block progress to the human when they arise.
 
-Apply any publication handoff recorded in the shared task record before relying on earlier task-level permission. For a grouped task, follow the [group publication rule](GROUPS.md#publish-through-the-coordinator). The worker hands off the exact candidate and evidence. The coordinator alone publishes and reports readiness using the current group conditions, including any unresolved startup route that could bypass the handoff.
+### Verify the publication owner
+
+Before each push, PR publication or update, or report of readiness, verify ownership regardless of how the work was requested. Look up the task key or PR reference in the applicable shared task and group records for the project. Use the original profile or agreed coordinator route when the current worktree's profile cannot reach those records. Apply any recorded publication handoff. If the applicable shared records cannot be checked or ownership is ambiguous, keep the affected publication pending and continue preparation. When the applicable lookup finds no group or handoff, follow the ordinary publication rules above.
+
+For grouped work, follow the [group publication rule](GROUPS.md#publish-through-the-coordinator). The worker hands off the exact candidate and evidence. The coordinator alone publishes and reports readiness using the current group conditions, including any unresolved startup route that could bypass the handoff.
 
 ### Publish and update the PR
 

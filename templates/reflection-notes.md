@@ -12,7 +12,7 @@ Keep one checkpoint per approved source. Save observations before advancing it. 
 
 ## Episodes
 
-Keep a stable episode ID across runs. Associate multiple evidence references with the same episode when they describe one incident.
+Keep a stable episode ID across runs. Associate multiple evidence references with the same episode when they describe one incident. Record each reference's original source and approved scope so a later run can tell which evidence it may use.
 
 | Episode ID | Evidence references | Expected behavior | What happened | Observable consequence |
 | --- | --- | --- | --- | --- |
