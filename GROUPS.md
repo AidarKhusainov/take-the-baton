@@ -69,7 +69,9 @@ In the coordinator chat, show a compact table with each task, its PRs if any, pr
 
 ## Resume coordination
 
-Save the group record before handing off or pausing, with the coordinator, assignments, outstanding launch attempts, decisions, task and PR references, exact revisions, check coverage, and next actions. Workers update their own task records; one coordinator owns updates to the shared group record.
+Record the source URL and exact Take the Baton revision when starting coordination. Save the group record before handing off or pausing, with the coordinator, assignments, outstanding launch attempts, decisions, task and PR references, exact revisions, check coverage, and next actions. Workers update their own task records; one coordinator owns updates to the shared group record.
+
+On resumption, use the workflow revision recorded for the group, including after an installation update. Each task retains its own recorded revision. For legacy records and intentional migration, use the [task resumption rules](WORKFLOW.md#resume-in-any-session) and [UPDATE.md](UPDATE.md).
 
 When a worker resumes its own task, it reads the original group record, confirms its existing assignment and current prerequisites, and resumes that task without taking over coordination. A running coordinator does not block an unchanged valid worker assignment.
 

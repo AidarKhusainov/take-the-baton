@@ -17,13 +17,14 @@ Use this checklist throughout setup.
 | Project scope | The exact project or module path and its applicable instructions are identified. |
 | Private storage | The agreed private location for both the profile and task records is confirmed. Inside a checkout, verify that the intended paths are untracked and the local exclusion applies. |
 | Profile | A saved profile has been read back and contains the selected paths, commands, and tool routes. |
+| Installation registry | A verified entry locates this installation in the private registry, or a pending registration and the manual lookup path are reported. |
 | Activation | The selected mode and scope are recorded, or both are marked **Not applicable** for manual-only setup. The instruction location and profile lookup are verified, or the remaining step or manual route is reported. |
 | Subagent selection | The priority, constraints, supported settings and evidence, and fallback are recorded in the profile. |
 | Reflection | The approved mode and scope are recorded. Any daily schedule or requested pause is verified, or the manual route and remaining limitation are reported. |
 | Tools and project rules | Each action has a recorded access status and any required fallback. Branch names and descriptions, commit subjects and bodies, PR titles and templates, and requirements before publication and merge are recorded, with any unavailable or inapplicable items identified. |
 | Code checks | Existing hooks, linters, formatters, validators, and CI checks are recorded with their triggers. Any recommendations for gaps are listed separately. |
 
-Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding activation, subagent selection, reflection, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete.
+Setup is complete when project scope, private storage, and the saved profile meet their criteria. Report a complete setup with outstanding registration, activation, subagent selection, reflection, tool, or check limitations as ready with limitations. A profile supplied for manual saving leaves setup incomplete. For an existing installation whose instructions need a newer revision, use [UPDATE.md](UPDATE.md).
 
 ## Inspect the project
 
@@ -83,6 +84,8 @@ Treat the answers as preferences for the proposal. Confirm any file changes afte
 
 Find an instruction location that the host already loads for the selected project. Scope the rule to that project or module, and identify the profile and workflow source. Follow existing shared project rules and surface any conflict with the requested mode or scope. In default mode, start the workflow for development task requests. In keyword mode, match the chosen keyword at the start of the user's own message, ignoring case and allowing whitespace or punctuation after the keyword. Either mode can also start when the user explicitly asks to use Take the Baton.
 
+For explicit resumption, use the workflow revision in the original task or group record when present. For a request to update the installation, follow [UPDATE.md](UPDATE.md) from the requested source before starting any task workflow.
+
 - **Personal setup.** Propose a rule in the user's existing personal instructions, scoped to the project. Point it to the agreed profile path and use the source URL and revision stored in the profile.
 - **Team setup.** Show the proposed change to the shared project instructions. Give the team a common way to find each developer's private profile, such as the same project-relative ignored path or a personal pointer for external storage. Keep personal paths and private profile contents in personal storage. Apply the shared instruction edit only if the user approves that exact edit and project rules allow it.
 
@@ -96,7 +99,7 @@ Fill in the source URL and revision and the paths needed for the request.
 
 **Resume from a record**
 
-> Use Take the Baton for this project. Read the workflow from `<source URL and revision>`. Resume from `<original task record path>`.
+> Resume Take the Baton from `<original task record path>`. Use the workflow source and revision recorded for the task, or `<original source URL and revision>` if the record has no source reference.
 
 **Resume by task key**
 
@@ -108,7 +111,9 @@ Fill in the source URL and revision and the paths needed for the request.
 
 **Resume a group**
 
-> Use Take the Baton from `<source URL and revision>`. Resume coordination from `<original group record path>` and reuse its original profiles and existing working chats.
+> Resume Take the Baton coordination from `<original group record path>`. Use the workflow source and revision recorded for the group and reuse its original profiles and existing working chats.
+
+If a legacy group record has no source revision, use its verified original source reference or follow the [update guide](UPDATE.md#prepare-one-update-proposal) to resolve compatibility.
 
 ## Configure subagent selection
 
@@ -136,6 +141,8 @@ Ask for explicit recurring permission before including chats in a daily schedule
 
 ## Confirm one proposal
 
+Include the [private registry](UPDATE.md#private-installation-registry) path and the proposed entry in the same proposal. Keep the registry outside work checkouts. Use the existing entry if it already identifies the verified installation. Setup confirmation covers the displayed registry entry together with other approved edits.
+
 Keep the profile and task records private. Use `.take-the-baton/profile.md` and `.take-the-baton/tasks/` in the selected project only when the directory is untracked and a local VCS exclusion can be verified. Check for any tracked or staged files under that path. For Git, resolve the local exclude file with `git rev-parse --git-path info/exclude` and match the actual directory relative to the repository root, including any module prefix. A tracked or staged path, or an exclusion that cannot be verified, calls for an agreed private location outside the checkout for both the profile and task records. Preserve existing tracked or staged files.
 
 If the workflow registers tasks, record where this developer's registration records live for the project and tracker destination. One worktree can use its task directory. When setting up another worktree, reuse the original private registration records or the agreed coordinator that can reconcile prior attempts. Record how a new session can look up an original task record by tracker key or URL. Propose a separate private location only if it is needed and preserves access to earlier attempts. If the route cannot be verified, report registration as pending.
@@ -150,6 +157,7 @@ Fill in this **before** report in the user's language. Include the proposed stor
 >
 > - Project and scope — `<project or module and path>`
 > - Private storage — `<profile and task record paths and any local exclusion to add; shared route across your worktrees for registration, if applicable>`
+> - Installation registry — `<path and exact entry to add or update, or existing verified entry>`
 > - Startup — `<mode, personal or team scope, keyword if used, and how the profile is found, or the manual startup prompt>`
 > - Subagent selection — `<priority, explicit constraints, supported settings, and fallback>`
 > - Reflection — `<mode, approved source scope and notes path; if daily, time, time zone, and proposed schedule change or limitation>`
@@ -171,6 +179,8 @@ Preserve existing content and record the source URL and revision or tag when ava
 
 For an approved daily mode, use [the scheduler reconciliation steps](REFLECTION.md#enable-a-daily-run-if-requested). Record the approved configuration and actual status in the profile's Reflection section. If no daily run can be scheduled, give a copyable prompt for a manual run. When changing to manual or off mode, first save the approved mode and scope so scheduled runs can observe the change. Reconcile existing schedules and unresolved create attempts, and pause the matching schedule as included in the proposal. Keep schedule shutdown pending until its paused state or absence is confirmed; a failed pause does not establish that the job stopped. Report any remaining active or unknown job and required user action.
 
+After saving and verifying the profile and applicable source references, save and read back the approved registry entry. Include manual installations and use the same registry across this user's projects on the host.
+
 Fill in this **after** report in the user's language. Use one line per checklist item with its status and a brief confirmation or reason.
 
 > **Setup result** — `<ready / ready with limitations / incomplete>`
@@ -178,6 +188,7 @@ Fill in this **after** report in the user's language. Use one line per checklist
 > - Project scope — `<status and project or module path>`
 > - Private storage — `<status, paths and protection>`
 > - Profile — `<status and profile path>`
+> - Installation registry — `<verified entry and registry path, or pending registration and profile path for manual lookup>`
 > - Activation — `<status, mode, scope, and instruction location or manual route>`
 > - Subagent selection — `<status, approved priority and constraints, and any unverified mapping or fallback>`
 > - Reflection — `<status, mode, and schedule reference and pause route or manual route, as applicable>`
@@ -188,7 +199,7 @@ Fill in this **after** report in the user's language. Use one line per checklist
 
 Use **Done** for changes made, **Verified** for confirmed facts, **Proposed** for suggestions awaiting a decision, **Pending** for blocked or manual steps, and **Not applicable** with a reason when an item does not apply. Keep suggestions marked **Proposed** separate from discovered checks. For default mode, show an ordinary task request. For keyword mode, put the selected keyword first. For pending or manual startup, give the full manual prompt. Report partial changes accurately. If the profile could not be saved, return its completed contents and intended path. Ask a follow-up only when the user needs to act to finish setup. The confirmation covers the displayed setup changes, including any approved reflection schedule change. Workflow actions follow the user's task request and the project's approval rules.
 
-On rerun, compare the existing profile, storage protection, activation instructions, subagent settings and available capabilities, reflection configuration and schedule, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
+On rerun, compare the existing profile, registry entry, storage protection, activation instructions, subagent settings and available capabilities, reflection configuration and schedule, tools, and rules. If no changes are needed, report the current checklist status. If changes are needed, present them together and preserve confirmed preferences.
 
 ## Setup verification scenarios
 
@@ -211,6 +222,7 @@ Start each scenario with a host that supports personal and team activation, unle
 | R1 was confirmed and schedule creation returned an ambiguous result. | Reconcile against the scheduler and saved attempt. If unresolved, report the status as pending and avoid submitting another create. A rerun reuses a single verified matching schedule. |
 | The user changes from daily to R2 or R3, including after an unresolved create or failed pause. | Save the confirmed mode, reconcile the schedule, and verify its pause or absence. Report shutdown pending while its state is unknown; existing runs check the current mode before reading sources. |
 | Group coordination is supported but workspace isolation is unavailable. | Record chat routes and serialized mutation fallback. Do not launch chats or create workspaces as a setup check. |
+| Setup is rerun for a verified manual installation that has no registry entry. | Show the entry in the setup proposal and record it after verification. Preserve the manual startup choice. |
 | New project setup has no subagent preference. | Propose `balanced` without another question. Offer `quality` and `economy` in the same proposal and save the approved choice after confirmation. |
 | A rerun finds a confirmed fixed model or effort, or the user gives an explicit new choice for this project. | Preserve the confirmed choices and apply only the requested change. Flag unsupported constraints and keep the recorded choices until the user approves a change. |
 | The delegation surface exposes partial overrides or cannot expose a current model catalog. | Mark unverifiable mappings `unverified`, retain supported explicit model or effort choices, and identify a compatible fallback for each unsupported dimension. Keep unmet required constraints pending. Skip discovery launches. |

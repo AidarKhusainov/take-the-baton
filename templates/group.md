@@ -6,6 +6,7 @@
 - Requested outcome and stopping point:
 - Coordinator host and chat reference, ownership confirmation:
 - Original project profiles (absolute paths or `record-relative:` paths):
+- Take the Baton source URL and exact workflow revision used for group coordination (task-specific revisions remain in task records):
 - Private record location and participant access:
 - User authorization and source for working chats, messaging, project access, and publication:
 - Shared requirements, contract versions, acceptance checks, and decisions:

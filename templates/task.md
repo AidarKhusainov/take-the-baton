@@ -26,6 +26,7 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 - Assigned independent reviewer session reference:
 - Session reassignments and reasons, if any:
 - Profile reference (absolute path or `record-relative: <path>` from this record's directory):
+- Take the Baton source URL and exact workflow revision used for this task:
 - Group record reference and task ID within it, if grouped:
 - Prerequisite output or contract versions and mutation ownership, if grouped:
 

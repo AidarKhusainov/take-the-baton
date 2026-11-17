@@ -45,4 +45,20 @@ Baton: take on related tasks PROJ-123, PROJ-124, and PROJ-125. Create working ch
 
 You can supply task descriptions or existing PRs as well. The agent records the relationships between tasks and PRs and reports any unavailable chat, publication, or verification capabilities. To resume a group, start Take the Baton and supply the original group record path.
 
-[Setup guide](SETUP.md) · [Task workflow](WORKFLOW.md) · [Related tasks](GROUPS.md) · [Subagent selection](SUBAGENTS.md) · [Reflection](REFLECTION.md) · [MIT License](LICENSE)
+## Update an installation
+
+Send this in the project you want to update.
+
+```text
+Update Take the Baton in this project using UPDATE.md from https://github.com/AidarKhusainov/take-the-baton. Use the latest revision of the default branch and preserve this project's settings and task records. Show the proposed changes and wait for my confirmation.
+```
+
+To update all known installations, send the following from a chat with access to those projects.
+
+```text
+Update Take the Baton in all accessible projects where it is installed using UPDATE.md from https://github.com/AidarKhusainov/take-the-baton. Preserve each project's settings and task records. Show which installations you found and the proposed changes, then wait for my confirmation. Report the result for each installation.
+```
+
+Setup records installations in a private registry. For older installations or a registry at a custom location, include known project or profile paths or the registry path if needed.
+
+[Setup guide](SETUP.md) · [Update guide](UPDATE.md) · [Task workflow](WORKFLOW.md) · [Related tasks](GROUPS.md) · [Subagent selection](SUBAGENTS.md) · [Reflection](REFLECTION.md) · [MIT License](LICENSE)

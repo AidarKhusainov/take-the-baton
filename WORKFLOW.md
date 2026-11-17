@@ -28,7 +28,7 @@ For explicit resumption, follow [the resumption steps](#resume-in-any-session). 
 - **Register an idea.** Follow [the registration steps](#register-a-task). Return the confirmed task reference, or the draft and pending status if remote creation is unavailable. Stop after registration unless the user also asked for implementation.
 - **Implement from a description.** Continue to [agree on behavior](#2-agree-on-behavior). Register the task first if the user requests registration or the project requires it. While registration is pending, continue only with work that project rules allow without a task key.
 
-Create a [task record](templates/task.md) when registering a task, before handing off implementation or review outside the current chat, before pausing for later resumption, or when the user or project requires one. Otherwise, keep decisions, change references, and results in the current chat, including review by a subagent started in that chat. When a record becomes necessary, carry forward the baseline, agreed behavior, exact change if one exists, check results, and next action.
+Create a [task record](templates/task.md) when registering a task, before handing off implementation or review outside the current chat, before pausing for later resumption, or when the user or project requires one. Otherwise, keep decisions, change references, and results in the current chat, including review by a subagent started in that chat. When a record becomes necessary, carry forward the exact Take the Baton source revision, baseline, agreed behavior, exact change if one exists, check results, and next action.
 
 For a grouped task, also link the task record to its [group record](templates/group.md) and check its prerequisites and assigned owner before starting work. Reuse the group's single owner for any shared PR or artifact.
 
@@ -169,6 +169,8 @@ Use the project's conventions for each branch, commit, and PR. Use these default
 - **Pull request.** Use `<task-key>: <outcome>` for the title. Fill the project's body template when available. The default body covers the problem, what changed, how to verify it, observed results and pending checks, and the related task when available. Compare the title and body with the final diff and verification evidence. If the scope changes, bring the PR title and body up to date.
 
 ## Resume in any session
+
+When resuming, read the original record before choosing the workflow revision. Load the instructions from the source URL and exact revision recorded for that work, even if the installed profile now points to a newer revision. Keep using the current project rules and approved permissions. For a legacy record without a workflow revision, use the verified original source reference if available. Ask about compatibility only if the original revision is unknown and that uncertainty affects the next action. See [UPDATE.md](UPDATE.md) for an explicit migration of ongoing work.
 
 Before pausing for later resumption or handing work off outside the current chat, create or update the task record with the stage, owner of the next action, agreed spec or acceptance checks, comparison base, check results, and any review decisions. Use the location agreed in the profile.
 

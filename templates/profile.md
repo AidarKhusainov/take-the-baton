@@ -7,6 +7,7 @@
 - Private decision journal path, if used:
 - Version control and default comparison base:
 - Take the Baton source URL and revision:
+- Private installation registry path on this host:
 - Activation mode (default or keyword) and keyword, if used (Not applicable for manual-only setup):
 - Activation scope (personal or team, or Not applicable for manual-only setup):
 - User-confirmed activation choices for this project (project or module path and approved mode, keyword if used, and scope):
