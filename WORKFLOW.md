@@ -137,7 +137,7 @@ Use the requested outcome to decide how far to proceed. One explicit request can
 
 Before each publication action and before reporting merge readiness, [confirm that the evidence still applies](#decide-which-verification-results-still-apply). If a prerequisite is incomplete or failing, or publication is unavailable, prepare the title, description, and diff for handoff and record the affected action as pending. Bring decisions that block progress to the human when they arise.
 
-For a grouped task, also [refresh the current assignment, shared decisions, and prerequisite revisions](GROUPS.md#propagate-changes-and-review-findings). An outdated launch message or local task record cannot clear a pending group requirement.
+For a grouped task, follow the [group publication rule](GROUPS.md#publish-through-the-coordinator). The worker hands off the exact candidate and evidence. The coordinator alone publishes and reports readiness using the current group conditions. This applies independently of any earlier task-level publication permission.
 
 ### Publish and update the PR
 

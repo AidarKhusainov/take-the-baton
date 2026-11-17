@@ -28,7 +28,7 @@ Use local IDs when no tracker task exists. Task records hold detailed implementa
 
 ## PR mapping
 
-Keep one row per PR with all associated tasks. Task records link to this mapping; one owner integrates and publishes a shared PR. No PR is required for a task still in investigation or planning.
+Keep one row per PR with all associated tasks. Task records link to this mapping. The owning worker integrates a candidate and the coordinator publishes it. No PR is required for a task still in investigation or planning.
 
 | PR | Task IDs | Owning chat | Intended base and last verified base/head | Status and merge/deployment prerequisites | Individual verification record |
 | --- | --- | --- | --- | --- | --- |
@@ -36,10 +36,23 @@ Keep one row per PR with all associated tasks. Task records link to this mapping
 
 ## Launches and handoffs
 
-- Requested assignments and launch attempts, including unresolved outcomes:
+- Requested assignments and chat launch attempts, including unresolved outcomes:
 - Confirmed host/chat references and recipient access:
 - Reassignments and reasons; confirmation previous writers stopped:
 - Coordinator handoff and ownership transfer:
+
+| Assignment ID | Destination host and chat | Action and input references | Delivery attempt and evidence | Delivery status | Work status |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
+## Publication by the coordinator
+
+- Current publication owner and any earlier unresolved attempt:
+- Reused worker acknowledgment of group rules and earlier publisher handoff, if applicable:
+
+| Authorized action and target | Exact candidate and remote revisions | Contract and prerequisite versions | Verification and review references | Attempt and observed outcome |
+| --- | --- | --- | --- | --- |
+| | | | | |
 
 ## Joint verification and impact
 

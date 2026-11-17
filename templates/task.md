@@ -61,7 +61,7 @@ Update this summary when the revision, stage, or next action changes. Keep suppo
 
 ## Multiple or shared PRs
 
-For one PR, the summary above can hold its status and evidence. For several PRs, record each one's base/head, publication status, check and review evidence, and next action separately. For a shared PR, link to the owning entry in the group record and its verification record; do not assign another publisher.
+For one PR, the summary above can hold its status and evidence. For several PRs, record each one's base/head, publication status, check and review evidence, and next action separately. For a grouped PR, link to the owning entry and verification evidence in the group record. The group coordinator owns publication, including for a shared PR.
 
 | PR or planned change | Owner or group entry | Verified base/head | Check and review evidence | Status and next action |
 | --- | --- | --- | --- | --- |
