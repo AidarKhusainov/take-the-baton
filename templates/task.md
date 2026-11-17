@@ -5,6 +5,7 @@
 - Stage and status:
 - Current revision or patch:
 - PR reference and publication status:
+- Publication handoff, if grouped (group and coordinator references, superseded worker permission, effective transfer and confirmation):
 - Last verified PR base and head:
 - Local verification status:
 - Independent review status:
@@ -12,6 +13,8 @@
 - Next action and owner:
 
 Update this summary when the revision, stage, or next action changes. Keep supporting evidence in the sections below.
+
+When publication transfers to a group coordinator, record the restriction in the PR and publication status as well. State explicitly that any earlier worker permission for this task is superseded. Keep the existing status field readable by workflows that predate group records.
 
 ## Task and handoff
 

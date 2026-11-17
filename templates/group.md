@@ -49,6 +49,8 @@ Keep one row per PR with all associated tasks. Task records link to this mapping
 
 - Current publication owner and any earlier unresolved attempt:
 - Reused worker acknowledgment of group rules and earlier publisher handoff, if applicable:
+- Shared task record references for publication handoffs and superseded worker permissions:
+- Known startup routes relevant to publication, verification evidence, and affected pending actions:
 
 | Authorized action and target | Exact candidate and remote revisions | Contract and prerequisite versions | Verification and review references | Attempt and observed outcome |
 | --- | --- | --- | --- | --- |
