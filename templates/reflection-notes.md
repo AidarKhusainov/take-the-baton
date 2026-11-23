@@ -18,6 +18,14 @@ Keep a stable episode ID across runs. Associate multiple evidence references wit
 | --- | --- | --- | --- | --- |
 | | | | | |
 
+## Candidates
+
+Keep a stable candidate reference and link its evidence to the observations above.
+
+| Candidate reference | Expected outcome and context | Evidence references | Evidence limits | Status | Next check |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
 ## Proposals and decisions
 
 Repeat the fields below for each proposal. Keep the exact proposed change and its decision together. Use a separate paragraph or code block for changes that do not fit in a table.
